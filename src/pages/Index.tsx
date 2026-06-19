@@ -124,67 +124,72 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Nav */}
-      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
+      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/80 border-b border-border/30">
         <div className="container flex items-center justify-between h-16">
           <button
             onClick={() => scrollTo('home')}
-            className="font-display text-2xl tracking-tight text-foreground"
+            className="font-display text-xl tracking-widest text-foreground"
           >
-            МАССАЖ <span className="text-primary">ЕВГЕНИЙ</span>
+            ЕВГЕНИЙ<span className="text-primary">.</span>
           </button>
           <nav className="hidden md:flex items-center gap-8">
             {NAV.map((n) => (
               <button
                 key={n.id}
                 onClick={() => scrollTo(n.id)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
               >
                 {n.label}
               </button>
             ))}
           </nav>
           <a href="https://dikidi.app/2093993" target="_blank" rel="noopener noreferrer">
-            <Button className="rounded-full px-6">Записаться</Button>
+            <Button className="rounded-none px-6 text-xs tracking-widest uppercase h-9">Записаться</Button>
           </a>
         </div>
       </header>
 
       {/* Hero */}
-      <section id="home" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-        <div className="container grid md:grid-cols-2 gap-12 items-center py-20">
+      <section id="home" className="relative min-h-screen flex items-center pt-16 overflow-hidden noise-bg">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+        <div className="container grid md:grid-cols-2 gap-16 items-center py-24">
           <div className="animate-fade-up">
-            <span className="inline-block text-sm tracking-[0.2em] uppercase text-primary mb-6">
-              профессиональный массаж
-            </span>
-            <h1 className="font-display text-5xl md:text-7xl leading-[1.02] mb-6">
-              Лёгкость.<br />Контур.<br />Перезагрузка.
+            <div className="flex items-center gap-3 mb-8">
+              <div className="h-px w-8 bg-primary" />
+              <span className="text-xs tracking-[0.3em] uppercase text-primary">профессиональный массаж · москва</span>
+            </div>
+            <h1 className="font-display text-6xl md:text-8xl leading-[0.95] mb-8 text-foreground">
+              Лёгкость.<br /><span className="text-primary">Контур.</span><br />Перезагрузка.
             </h1>
-            <p className="text-lg text-muted-foreground max-w-md mb-10">
+            <p className="text-base text-muted-foreground max-w-sm mb-10 leading-relaxed">
               Глубокая проработка мышц, моделирование контура тела и полная
-              перезагрузка за один визит. Выберите удобное время и начните
-              с первого сеанса.
+              перезагрузка за один визит.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="https://dikidi.app/2093993" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="rounded-full px-8 h-12">Записаться на сеанс</Button>
+                <Button size="lg" className="rounded-none px-10 h-12 text-xs tracking-widest uppercase">Записаться на сеанс</Button>
               </a>
               <Button
                 size="lg"
-                variant="outline"
+                variant="ghost"
                 onClick={() => scrollTo('services')}
-                className="rounded-full px-8 h-12 border-primary/30"
+                className="rounded-none px-10 h-12 text-xs tracking-widest uppercase border border-border/40 hover:border-primary/40 hover:bg-transparent hover:text-primary"
               >
-                Смотреть услуги
+                Услуги и цены
               </Button>
             </div>
           </div>
-          <div className="animate-fade-up" style={{ animationDelay: '0.15s' }}>
+          <div className="animate-fade-up" style={{ animationDelay: '0.2s' }}>
             <div className="relative">
-              <div className="absolute -inset-4 rounded-[1rem] bg-primary/20 blur-3xl" />
+              <div className="absolute -inset-8 bg-primary/10 blur-[80px] rounded-full" />
+              <div className="absolute -top-3 -right-3 w-24 h-24 border border-primary/20 rounded-none" />
+              <div className="absolute -bottom-3 -left-3 w-16 h-16 border border-primary/10 rounded-none" />
               <img
                 src={HERO_DECOR_IMG}
                 alt="Массаж"
-                className="relative rounded-[1rem] w-full aspect-square object-cover shadow-2xl ring-1 ring-border"
+                className="relative w-full aspect-square object-cover shadow-2xl"
+                style={{ clipPath: 'polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%)' }}
               />
             </div>
           </div>
@@ -192,84 +197,92 @@ const Index = () => {
       </section>
 
       {/* Services */}
-      <section id="services" className="py-24 bg-secondary/40">
+      <section id="services" className="py-28 bg-secondary/20">
         <div className="container">
-          <div className="max-w-xl mb-16">
-            <span className="text-sm tracking-[0.2em] uppercase text-primary">услуги</span>
-            <h2 className="font-display text-4xl md:text-5xl mt-3">Что я предлагаю</h2>
+          <div className="flex items-end justify-between mb-16 border-b border-border/30 pb-8">
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="h-px w-6 bg-primary" />
+                <span className="text-xs tracking-[0.3em] uppercase text-primary">услуги</span>
+              </div>
+              <h2 className="font-display text-5xl md:text-6xl">Что я предлагаю</h2>
+            </div>
+            <a href="https://dikidi.app/2093993" target="_blank" rel="noopener noreferrer" className="hidden md:block text-xs tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors border-b border-border/40 pb-1">
+              Записаться →
+            </a>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map((s) => (
-              <div key={s.name} className="hover-lift bg-card rounded-2xl p-8 border border-border/60 flex flex-col">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 shrink-0">
-                  <Icon name={s.icon} className="text-primary" size={22} />
+              <div key={s.name} className="card-premium hover-lift p-8 flex flex-col group">
+                <div className="w-10 h-10 border border-primary/30 flex items-center justify-center mb-8 shrink-0 group-hover:border-primary/60 group-hover:bg-primary/5 transition-colors">
+                  <Icon name={s.icon} className="text-primary" size={18} />
                 </div>
-                <h3 className="font-display text-xl mb-3">{s.name}</h3>
-                <p className="text-muted-foreground text-sm mb-6 flex-1">{s.desc}</p>
-                <div className="border-t border-border/40 pt-4 mt-auto">
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground text-sm flex items-center gap-2">
-                      <Icon name="Clock" size={14} /> {s.duration}
-                    </span>
-                    <div className="text-right">
-                      {s.sale ? (
-                        <>
-                          <div className="text-xs text-muted-foreground line-through">{s.price}</div>
-                          <div className="text-primary font-medium">{s.sale} <span className="text-xs text-muted-foreground font-normal">акция</span></div>
-                        </>
-                      ) : (
-                        <div className="text-primary font-medium text-lg">{s.price}</div>
-                      )}
-                    </div>
+                <h3 className="font-display text-lg mb-3 leading-tight">{s.name}</h3>
+                <p className="text-muted-foreground text-sm mb-8 flex-1 leading-relaxed">{s.desc}</p>
+                <div className="border-t border-border/30 pt-5 mt-auto flex items-center justify-between">
+                  <span className="text-muted-foreground text-xs tracking-wider flex items-center gap-1.5">
+                    <Icon name="Clock" size={12} /> {s.duration}
+                  </span>
+                  <div className="text-right">
+                    {s.sale ? (
+                      <>
+                        <div className="text-xs text-muted-foreground line-through">{s.price}</div>
+                        <div className="text-primary font-medium text-sm">{s.sale} <span className="text-xs text-muted-foreground font-normal">акция</span></div>
+                      </>
+                    ) : (
+                      <div className="text-primary font-medium">{s.price}</div>
+                    )}
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <p className="mt-6 text-sm text-muted-foreground text-center">
+          <p className="mt-8 text-xs text-muted-foreground text-center tracking-wider">
             * Акция «Знакомство» — цена первого сеанса для новых клиентов
           </p>
         </div>
       </section>
 
       {/* About */}
-      <section id="about" className="py-24">
-        <div className="container grid md:grid-cols-5 gap-12 items-center">
-          <div className="md:col-span-2">
+      <section id="about" className="py-28">
+        <div className="container grid md:grid-cols-5 gap-16 items-center">
+          <div className="md:col-span-2 relative">
+            <div className="absolute -top-4 -left-4 w-20 h-20 border border-primary/15" />
+            <div className="absolute -bottom-4 -right-4 w-14 h-14 border border-primary/10" />
             <img
               src={HERO_IMG}
               alt="Евгений — профессиональный массажист"
-              className="rounded-[1rem] w-full object-cover object-top"
+              className="relative w-full object-cover object-top"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%)' }}
             />
           </div>
           <div className="md:col-span-3">
-            <span className="text-sm tracking-[0.2em] uppercase text-primary">обо мне</span>
-            <h2 className="font-display text-4xl md:text-5xl mt-3 mb-6">
-              Ваше тело — моя работа
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px w-6 bg-primary" />
+              <span className="text-xs tracking-[0.3em] uppercase text-primary">обо мне</span>
+            </div>
+            <h2 className="font-display text-5xl md:text-6xl mb-8">
+              Ваше тело —<br />моя работа
             </h2>
-            <p className="text-lg text-muted-foreground mb-4">
+            <p className="text-muted-foreground mb-4 leading-relaxed">
               Меня зовут Евгений. Более 8 лет я работаю с телом: восстановление
               после нагрузок, эстетика контура, возвращение лёгкости и тонуса.
               Владею техниками классического, лимфодренажного, медового массажа
               и обёртываний. Работаю на результат, который виден и ощутим.
             </p>
-            <p className="text-lg text-muted-foreground mb-8">
-              Каждый сеанс — это не просто массаж, а продуманная схема под ваш
-              запрос. Хотите убрать отёчность и подтянуть контур — построим курс
-              лимфодренажа и обёртываний. Нужно снять боль и напряжение — глубоко
-              проработаем мышцы классической или комбинированной техникой. Хотите
-              мощный детокс — включим медовый массаж. Без спешки, с вниманием
-              к каждому участку тела.
+            <p className="text-muted-foreground mb-10 leading-relaxed">
+              Каждый сеанс — продуманная схема под ваш запрос. Без спешки,
+              с вниманием к каждому участку тела.
             </p>
-            <div className="flex flex-wrap gap-10">
+            <div className="grid grid-cols-3 gap-6 border-t border-border/30 pt-8">
               {[
                 { n: '8+', l: 'лет практики' },
-                { n: '1200+', l: 'довольных клиентов' },
-                { n: '100%', l: 'индивидуальный подход' },
+                { n: '1200+', l: 'клиентов' },
+                { n: '100%', l: 'индивидуально' },
               ].map((stat) => (
-                <div key={stat.l}>
+                <div key={stat.l} className="relative pl-4 before:absolute before:left-0 before:top-1 before:h-4/5 before:w-px before:bg-primary/40">
                   <div className="font-display text-4xl text-primary">{stat.n}</div>
-                  <div className="text-sm text-muted-foreground mt-1">{stat.l}</div>
+                  <div className="text-xs text-muted-foreground mt-1 tracking-wider uppercase">{stat.l}</div>
                 </div>
               ))}
             </div>
@@ -278,27 +291,32 @@ const Index = () => {
       </section>
 
       {/* Booking */}
-      <section id="booking" className="py-24 bg-primary/5">
-        <div className="container max-w-3xl">
+      <section id="booking" className="py-28 bg-secondary/20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
+        <div className="container max-w-3xl relative">
           <div className="text-center mb-12">
-            <span className="text-sm tracking-[0.2em] uppercase text-primary">онлайн-запись</span>
-            <h2 className="font-display text-4xl md:text-5xl mt-3">Выберите услугу и время</h2>
-            <p className="text-muted-foreground mt-4 max-w-md mx-auto">
-              Оставьте заявку — я свяжусь с вами, чтобы подтвердить запись и ответить на вопросы.
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-8 bg-primary" />
+              <span className="text-xs tracking-[0.3em] uppercase text-primary">онлайн-запись</span>
+              <div className="h-px w-8 bg-primary" />
+            </div>
+            <h2 className="font-display text-5xl md:text-6xl mb-4">Выберите услугу</h2>
+            <p className="text-muted-foreground text-sm max-w-md mx-auto leading-relaxed">
+              Оставьте заявку — свяжусь, чтобы подтвердить запись и ответить на вопросы.
             </p>
           </div>
-          <form onSubmit={handleSubmit} className="bg-card rounded-3xl p-8 md:p-10 border border-border/60 shadow-sm">
-            <label className="block text-sm font-medium mb-3">Желаемая услуга</label>
-            <div className="grid sm:grid-cols-2 gap-3 mb-8">
+          <form onSubmit={handleSubmit} className="bg-card border border-border/40 p-8 md:p-10" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 96%, 97% 100%, 0 100%)' }}>
+            <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-4">Желаемая услуга</label>
+            <div className="grid sm:grid-cols-2 gap-2 mb-8">
               {SERVICE_NAMES.map((name) => (
                 <button
                   type="button"
                   key={name}
                   onClick={() => setSelectedService(name)}
-                  className={`text-left rounded-xl border p-4 text-sm transition-colors ${
+                  className={`text-left border p-4 text-sm transition-all duration-200 ${
                     selectedService === name
-                      ? 'border-primary bg-primary/10 text-foreground'
-                      : 'border-border text-muted-foreground hover:border-primary/40'
+                      ? 'border-primary bg-primary/8 text-foreground'
+                      : 'border-border/40 text-muted-foreground hover:border-primary/30 hover:text-foreground'
                   }`}
                 >
                   {name}
@@ -306,17 +324,17 @@ const Index = () => {
               ))}
             </div>
 
-            <label className="block text-sm font-medium mb-3">Удобное время</label>
-            <div className="flex flex-wrap gap-3 mb-8">
+            <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-4">Удобное время</label>
+            <div className="flex flex-wrap gap-2 mb-8">
               {TIMES.map((t) => (
                 <button
                   type="button"
                   key={t}
                   onClick={() => setTime(t)}
-                  className={`rounded-full px-5 py-2.5 border text-sm transition-colors ${
+                  className={`px-5 py-2 border text-sm transition-all duration-200 tracking-wider ${
                     time === t
                       ? 'border-primary bg-primary text-primary-foreground'
-                      : 'border-border text-muted-foreground hover:border-primary/40'
+                      : 'border-border/40 text-muted-foreground hover:border-primary/40'
                   }`}
                 >
                   {t}
@@ -324,12 +342,12 @@ const Index = () => {
               ))}
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4 mb-6">
-              <Input placeholder="Ваше имя" className="h-12 rounded-xl" />
-              <Input placeholder="Телефон" type="tel" className="h-12 rounded-xl" />
+            <div className="grid sm:grid-cols-2 gap-3 mb-6">
+              <Input placeholder="Ваше имя" className="h-11 rounded-none border-border/40 focus:border-primary bg-transparent" />
+              <Input placeholder="Телефон" type="tel" className="h-11 rounded-none border-border/40 focus:border-primary bg-transparent" />
             </div>
 
-            <Button type="submit" size="lg" className="w-full rounded-full h-12">
+            <Button type="submit" size="lg" className="w-full rounded-none h-12 text-xs tracking-widest uppercase">
               Записаться{time ? ` на ${time}` : ''}
             </Button>
           </form>
@@ -337,22 +355,39 @@ const Index = () => {
       </section>
 
       {/* Reviews */}
-      <section id="reviews" className="py-24">
+      <section id="reviews" className="py-28">
         <div className="container">
-          <div className="text-center max-w-xl mx-auto mb-16">
-            <span className="text-sm tracking-[0.2em] uppercase text-primary">отзывы</span>
-            <h2 className="font-display text-4xl md:text-5xl mt-3">Что говорят клиенты</h2>
+          <div className="flex items-end justify-between mb-16 border-b border-border/30 pb-8">
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="h-px w-6 bg-primary" />
+                <span className="text-xs tracking-[0.3em] uppercase text-primary">отзывы</span>
+              </div>
+              <h2 className="font-display text-5xl md:text-6xl">Что говорят клиенты</h2>
+            </div>
+            <div className="hidden md:flex items-center gap-1 text-primary">
+              {[...Array(5)].map((_, i) => (
+                <Icon key={i} name="Star" size={16} fill="currentColor" />
+              ))}
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {REVIEWS.map((r) => (
-              <div key={r.name} className="bg-card rounded-2xl p-8 border border-border/60">
-                <div className="flex gap-1 mb-4 text-primary">
-                  {[...Array(5)].map((_, i) => (
-                    <Icon key={i} name="Star" size={14} fill="currentColor" />
-                  ))}
+              <div key={r.name} className="card-premium p-8 flex flex-col justify-between">
+                <div>
+                  <div className="flex gap-1 mb-6 text-primary">
+                    {[...Array(5)].map((_, i) => (
+                      <Icon key={i} name="Star" size={12} fill="currentColor" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">«{r.text}»</p>
                 </div>
-                <p className="text-muted-foreground italic mb-6 text-sm leading-relaxed">«{r.text}»</p>
-                <div className="font-display text-lg">— {r.name}</div>
+                <div className="flex items-center gap-3 pt-5 border-t border-border/30">
+                  <div className="w-7 h-7 border border-primary/30 flex items-center justify-center">
+                    <span className="text-primary text-xs font-display">{r.name[0]}</span>
+                  </div>
+                  <span className="font-display text-sm tracking-wider">{r.name}</span>
+                </div>
               </div>
             ))}
           </div>
@@ -427,12 +462,20 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="py-10 border-t border-border/40 bg-secondary/20">
-        <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <span className="font-display text-xl text-foreground">
+      <footer className="py-8 border-t border-border/20">
+        <div className="container flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span className="font-display text-lg tracking-widest text-foreground">
             ЕВГЕНИЙ<span className="text-primary">.</span>
           </span>
-          <span>© {new Date().getFullYear()} · Профессиональный массаж · Москва</span>
+          <span className="text-xs tracking-wider text-muted-foreground uppercase">© {new Date().getFullYear()} · Профессиональный массаж · Москва</span>
+          <a
+            href="https://dikidi.app/2093993"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors border-b border-border/30 pb-0.5"
+          >
+            Записаться онлайн →
+          </a>
         </div>
       </footer>
     </div>
