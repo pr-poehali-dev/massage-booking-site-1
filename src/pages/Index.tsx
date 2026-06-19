@@ -181,7 +181,7 @@ const Index = () => {
               <img
                 src={HERO_IMG}
                 alt="Профессиональный массаж от Евгения"
-                className="relative rounded-[1rem] w-full aspect-square object-cover object-top shadow-2xl ring-1 ring-border"
+                className="relative rounded-[1rem] w-full aspect-square object-cover shadow-2xl ring-1 ring-border"
               />
             </div>
           </div>
