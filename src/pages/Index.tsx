@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 
 const HERO_IMG =
-  'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/8cabd1eb-8eed-4b1b-a9e0-75b8c8eb5693.jpg';
+  'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/28ffc5f0-71c5-447f-9ed0-c48abdf9dc70.jpeg';
 
 const NAV = [
   { id: 'home', label: 'Главная' },
@@ -181,7 +181,7 @@ const Index = () => {
               <img
                 src={HERO_IMG}
                 alt="Профессиональный массаж от Евгения"
-                className="relative rounded-[1rem] w-full aspect-square object-cover shadow-2xl ring-1 ring-border"
+                className="relative rounded-[1rem] w-full aspect-square object-cover object-top shadow-2xl ring-1 ring-border"
               />
             </div>
           </div>
