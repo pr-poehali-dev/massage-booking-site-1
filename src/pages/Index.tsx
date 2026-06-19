@@ -178,11 +178,10 @@ const Index = () => {
           <div className="animate-fade-up" style={{ animationDelay: '0.15s' }}>
             <div className="relative">
               <div className="absolute -inset-4 rounded-[1rem] bg-primary/20 blur-3xl" />
-              <img
-                src={HERO_IMG}
-                alt="Профессиональный массаж от Евгения"
-                className="relative rounded-[1rem] w-full aspect-square object-cover shadow-2xl ring-1 ring-border"
-              />
+              <div className="relative rounded-[1rem] w-full aspect-square bg-secondary border border-border/60 shadow-2xl ring-1 ring-border flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
+                <Icon name="Sparkles" size={80} className="text-primary/20" />
+              </div>
             </div>
           </div>
         </div>
