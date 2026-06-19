@@ -379,15 +379,22 @@ const Index = () => {
               ))}
             </div>
             <div className="flex gap-3 mt-8">
-              {['Send', 'MessageCircle', 'Phone'].map((i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-11 h-11 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                >
-                  <Icon name={i} size={18} />
-                </a>
-              ))}
+              <a
+                href="https://t.me/+79933387373"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-border hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-medium"
+              >
+                <Icon name="Send" size={16} /> Telegram
+              </a>
+              <a
+                href="https://wa.me/79933387373"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-border hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-medium"
+              >
+                <Icon name="MessageCircle" size={16} /> WhatsApp
+              </a>
             </div>
           </div>
           <div className="bg-card border border-border rounded-[1rem] min-h-[300px] flex items-center justify-center">
