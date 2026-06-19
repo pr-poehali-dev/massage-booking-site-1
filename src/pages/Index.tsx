@@ -5,12 +5,12 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 
 const CAROUSEL_IMGS = [
-  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/c1e148ae-bcc2-43ab-ade6-b204f32d8c20.jpg', label: 'Классический массаж' },
-  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/b0769036-657b-4e48-82a3-76ba2f08fd53.jpg', label: 'Лимфодренаж' },
-  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/5fc6f530-28cc-49f9-8f92-c306918ccb9b.jpg', label: 'Медовый массаж' },
-  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/c0c3c95e-d54b-4064-b5d7-9727c19b07b0.jpg', label: 'Обёртывания' },
-  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/e0fc7b11-f53c-4160-80f9-0b917cd4d1cb.jpg', label: 'Антицеллюлитный' },
-  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/1d1dccad-8418-4f74-9363-ef0c1e00c7dc.jpg', label: 'Кабинет' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/89d7ed2c-ac13-4499-a35c-1ae7e4fd3898.jpg', label: 'Классический массаж' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/954be263-aaa2-4fb4-a78d-b2042200e0ad.jpg', label: 'Лимфодренаж' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/bcbf0850-fca5-4df3-8952-3121fe15e82a.jpg', label: 'Медовый массаж' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/9fa951a2-dc4c-4097-b497-0cccae24c706.jpg', label: 'Обёртывания' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/b59aa630-ba37-4b56-a7e2-003a0d6e0640.jpg', label: 'Антицеллюлитный' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/0904b884-429f-49ea-9e97-3b37d72d518b.jpg', label: 'Комбинированный' },
 ];
 
 const HERO_IMG =
