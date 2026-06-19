@@ -143,9 +143,9 @@ const Index = () => {
               </button>
             ))}
           </nav>
-          <Button onClick={() => scrollTo('booking')} className="rounded-full px-6">
-            Записаться
-          </Button>
+          <a href="https://dikidi.app/2093993" target="_blank" rel="noopener noreferrer">
+            <Button className="rounded-full px-6">Записаться</Button>
+          </a>
         </div>
       </header>
 
@@ -165,9 +165,9 @@ const Index = () => {
               с первого сеанса.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" onClick={() => scrollTo('booking')} className="rounded-full px-8 h-12">
-                Записаться на сеанс
-              </Button>
+              <a href="https://dikidi.app/2093993" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="rounded-full px-8 h-12">Записаться на сеанс</Button>
+              </a>
               <Button
                 size="lg"
                 variant="outline"
