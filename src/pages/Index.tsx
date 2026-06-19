@@ -397,64 +397,35 @@ const Index = () => {
       {/* Booking */}
       <section id="booking" className="py-16 md:py-28 bg-secondary/20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
-        <div className="container max-w-3xl relative">
+        <div className="container max-w-2xl relative">
           <div className="text-center mb-8 md:mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="h-px w-8 bg-primary" />
               <span className="text-xs tracking-[0.3em] uppercase text-primary">онлайн-запись</span>
               <div className="h-px w-8 bg-primary" />
             </div>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mb-4">Выберите услугу</h2>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mb-4">Запись онлайн</h2>
             <p className="text-muted-foreground text-sm max-w-md mx-auto leading-relaxed">
-              Оставьте заявку — свяжусь, чтобы подтвердить запись и ответить на вопросы.
+              Выберите удобное время и услугу прямо в онлайн-календаре
             </p>
           </div>
-          <form onSubmit={handleSubmit} className="bg-card border border-border/40 p-5 md:p-10" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 96%, 97% 100%, 0 100%)' }}>
-            <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-3 md:mb-4">Желаемая услуга</label>
-            <div className="grid sm:grid-cols-2 gap-2 mb-6 md:mb-8">
-              {SERVICE_NAMES.map((name) => (
-                <button
-                  type="button"
-                  key={name}
-                  onClick={() => setSelectedService(name)}
-                  className={`text-left border p-3 md:p-4 text-sm transition-all duration-200 ${
-                    selectedService === name
-                      ? 'border-primary bg-primary/8 text-foreground'
-                      : 'border-border/40 text-muted-foreground hover:border-primary/30 hover:text-foreground'
-                  }`}
-                >
-                  {name}
-                </button>
-              ))}
+          <div className="bg-card border border-border/40 p-6 md:p-10 text-center" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 96%, 97% 100%, 0 100%)' }}>
+            <div className="w-16 h-16 border border-primary/30 flex items-center justify-center mx-auto mb-6">
+              <Icon name="CalendarCheck" className="text-primary" size={28} />
             </div>
-
-            <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-3 md:mb-4">Удобное время</label>
-            <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
-              {TIMES.map((t) => (
-                <button
-                  type="button"
-                  key={t}
-                  onClick={() => setTime(t)}
-                  className={`px-4 md:px-5 py-2 border text-sm transition-all duration-200 tracking-wider ${
-                    time === t
-                      ? 'border-primary bg-primary text-primary-foreground'
-                      : 'border-border/40 text-muted-foreground hover:border-primary/40'
-                  }`}
-                >
-                  {t}
-                </button>
-              ))}
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-3 mb-5 md:mb-6">
-              <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Ваше имя" className="h-11 rounded-none border-border/40 focus:border-primary bg-transparent" />
-              <Input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Телефон" type="tel" className="h-11 rounded-none border-border/40 focus:border-primary bg-transparent" />
-            </div>
-
-            <Button type="submit" size="lg" disabled={sending} className="w-full rounded-none h-12 text-xs tracking-widest uppercase">
-              {sending ? 'Отправляем...' : `Записаться${time ? ` на ${time}` : ''}`}
-            </Button>
-          </form>
+            <h3 className="font-display text-2xl md:text-3xl mb-3">Запишитесь за 1 минуту</h3>
+            <p className="text-muted-foreground text-sm mb-8 leading-relaxed max-w-sm mx-auto">
+              Выберите услугу, дату и удобное время — подтверждение придёт сразу после записи
+            </p>
+            <a href="https://dikidi.app/2093993" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="rounded-none px-12 h-13 text-sm tracking-widest uppercase w-full sm:w-auto">
+                Записаться онлайн
+              </Button>
+            </a>
+            <p className="text-xs text-muted-foreground mt-5 tracking-wider">
+              Или позвоните: <a href="tel:+79933387373" className="text-primary hover:underline">+7 (993) 338-73-73</a>
+            </p>
+          </div>
         </div>
       </section>
 
