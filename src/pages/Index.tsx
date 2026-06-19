@@ -18,55 +18,84 @@ const NAV = [
 
 const SERVICES = [
   {
-    icon: 'Dumbbell',
-    name: 'Спортивный массаж',
-    desc: 'Восстановление после нагрузок, разгон лактата и подготовка мышц.',
-    duration: '60 мин',
-    price: '3 500 ₽',
-  },
-  {
-    icon: 'Mountain',
-    name: 'Глубокотканный',
-    desc: 'Жёсткая проработка глубоких слоёв мышц и хронических зажимов.',
-    duration: '75 мин',
-    price: '4 500 ₽',
-  },
-  {
-    icon: 'Activity',
-    name: 'Лечебный массаж',
-    desc: 'Работа со спиной, шеей и осанкой. Снятие боли и напряжения.',
+    icon: 'Waves',
+    name: 'Классический массаж всего тела',
+    desc: 'Восстановление мышечного тонуса, улучшение кровообращения, снятие общего напряжения. Глубокая проработка всех мышечных групп — от шеи до стоп.',
     duration: '90 мин',
-    price: '4 800 ₽',
+    price: '4 500 ₽',
+    sale: '4 000 ₽',
   },
   {
-    icon: 'Zap',
-    name: 'Антистресс-сеанс',
-    desc: 'Спина, шея, голова — мощная разгрузка за один визит.',
-    duration: '45 мин',
-    price: '2 900 ₽',
+    icon: 'Droplets',
+    name: 'Лимфодренажный массаж тела',
+    desc: 'Мягкая техника, запускающая движение лимфы. Уходят отёки, выводится лишняя жидкость, возвращается лёгкость и подтянутость контура.',
+    duration: '90 мин',
+    price: '4 000 ₽',
+    sale: '3 500 ₽',
+  },
+  {
+    icon: 'Layers',
+    name: 'Комбинированный массаж-конструктор',
+    desc: 'Соберите сеанс под свой запрос. Классическая база + лимфодренаж. Можно добавить антицеллюлитный блок для проработки проблемных зон — моделирование контура и повышение упругости кожи.',
+    duration: '90 мин',
+    price: '4 500 ₽',
+    sale: '4 000 ₽',
+  },
+  {
+    icon: 'Flame',
+    name: 'Медовый массаж',
+    desc: 'Глубокий детокс и перезапуск обмена веществ. Мёд вытягивает токсины через кожу, прогревает ткани и разбивает застойные зоны. Интенсивно, но с мощным очищающим результатом.',
+    duration: '60 мин',
+    price: '3 800 ₽',
+    sale: '3 300 ₽',
+  },
+  {
+    icon: 'Sparkles',
+    name: 'Обёртывания',
+    desc: 'Завершающий штрих к массажу или самостоятельная процедура. Водорослевое — детокс и минерализация; шоколадное — питание и лифтинг; грязевое — глубокое прогревание и антицеллюлитный эффект. Состав подбирается под ваш запрос.',
+    duration: '60 мин',
+    price: '3 200 ₽',
+    sale: '2 800 ₽',
   },
 ];
 
 const REVIEWS = [
   {
-    name: 'Андрей',
-    text: 'После зала мышцы забиты в камень. Мастер реально знает анатомию — восстановление в два раза быстрее.',
+    name: 'Марина',
+    text: 'Пришла с сильной отёчностью после перелётов. После первого же лимфодренажного сеанса почувствовала невероятную лёгкость. Прошла курс — минус 3 см в объёмах, лицо посвежело, тело как будто стало другим.',
   },
   {
-    name: 'Сергей',
-    text: 'Сидячая работа убивала спину. Несколько сеансов — и боль ушла. Сильные, уверенные руки.',
+    name: 'Ольга',
+    text: 'Классический массаж у Евгения — это не просто поглаживания, а настоящая лечебная работа. Спина перестала болеть уже после второго сеанса. Очень грамотный подход, чувствуется знание анатомии.',
   },
   {
-    name: 'Игорь',
-    text: 'Без эзотерики и лишних слов — чёткая работа и результат. Хожу регулярно, рекомендую мужикам.',
+    name: 'Елена',
+    text: 'Брала комбинированный массаж с антицеллюлитным блоком + обёртывания. Через 6 сеансов кожа стала заметно ровнее и подтянутее. Результат, которого не добилась ни в одном салоне.',
   },
+  {
+    name: 'Ирина',
+    text: 'Понравилось, что Евгений слышит запрос. Я не знала, что именно мне нужно — предложил комбинированный массаж. После сеанса впервые за долгое время забыла про тяжесть в ногах и скованность в плечах.',
+  },
+  {
+    name: 'Светлана',
+    text: 'Медовый массаж — это что-то невероятное. Кожа после него дышит, ощущение чистоты и лёгкости на несколько дней. Теперь беру курсом раз в сезон.',
+  },
+];
+
+const SERVICE_NAMES = [
+  'Классический массаж всего тела',
+  'Лимфодренажный массаж тела',
+  'Комбинированный массаж-конструктор',
+  'Медовый массаж',
+  'Обёртывания',
+  'Затрудняюсь выбрать',
 ];
 
 const TIMES = ['10:00', '11:30', '13:00', '15:00', '16:30', '18:00'];
 
 const Index = () => {
   const { toast } = useToast();
-  const [service, setService] = useState(SERVICES[0].name);
+  const [selectedService, setSelectedService] = useState(SERVICE_NAMES[0]);
   const [time, setTime] = useState('');
 
   const scrollTo = (id: string) =>
@@ -76,7 +105,7 @@ const Index = () => {
     e.preventDefault();
     toast({
       title: 'Заявка отправлена',
-      description: 'Это демо-версия. Скоро вернёмся к вам с подтверждением.',
+      description: 'Евгений свяжется с вами, чтобы подтвердить запись.',
     });
   };
 
@@ -89,7 +118,7 @@ const Index = () => {
             onClick={() => scrollTo('home')}
             className="font-display text-2xl tracking-tight text-foreground"
           >
-            МАСТЕР<span className="text-primary">.</span>
+            ЕВГЕНИЙ<span className="text-primary">.</span>
           </button>
           <nav className="hidden md:flex items-center gap-8">
             {NAV.map((n) => (
@@ -102,38 +131,29 @@ const Index = () => {
               </button>
             ))}
           </nav>
-          <Button
-            onClick={() => scrollTo('booking')}
-            className="rounded-full px-6"
-          >
+          <Button onClick={() => scrollTo('booking')} className="rounded-full px-6">
             Записаться
           </Button>
         </div>
       </header>
 
       {/* Hero */}
-      <section
-        id="home"
-        className="relative min-h-screen flex items-center pt-16 overflow-hidden"
-      >
+      <section id="home" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
         <div className="container grid md:grid-cols-2 gap-12 items-center py-20">
           <div className="animate-fade-up">
             <span className="inline-block text-sm tracking-[0.2em] uppercase text-primary mb-6">
               профессиональный массаж
             </span>
             <h1 className="font-display text-5xl md:text-7xl leading-[1.02] mb-6">
-              Сила.<br />Восстановление.<br />Тонус.
+              Лёгкость.<br />Контур.<br />Сияние.
             </h1>
             <p className="text-lg text-muted-foreground max-w-md mb-10">
-              Глубокая проработка мышц, снятие зажимов и быстрое восстановление
-              тела. Запишитесь на удобное время онлайн.
+              Глубокая проработка мышц, моделирование контура тела и полная
+              перезагрузка за один визит. Выберите удобное время и начните
+              с первого сеанса.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button
-                size="lg"
-                onClick={() => scrollTo('booking')}
-                className="rounded-full px-8 h-12"
-              >
+              <Button size="lg" onClick={() => scrollTo('booking')} className="rounded-full px-8 h-12">
                 Записаться на сеанс
               </Button>
               <Button
@@ -146,15 +166,12 @@ const Index = () => {
               </Button>
             </div>
           </div>
-          <div
-            className="animate-fade-up"
-            style={{ animationDelay: '0.15s' }}
-          >
+          <div className="animate-fade-up" style={{ animationDelay: '0.15s' }}>
             <div className="relative">
               <div className="absolute -inset-4 rounded-[1rem] bg-primary/20 blur-3xl" />
               <img
                 src={HERO_IMG}
-                alt="Профессиональный массаж от мастера"
+                alt="Профессиональный массаж от Евгения"
                 className="relative rounded-[1rem] w-full aspect-square object-cover shadow-2xl ring-1 ring-border"
               />
             </div>
@@ -166,35 +183,34 @@ const Index = () => {
       <section id="services" className="py-24 bg-secondary/40">
         <div className="container">
           <div className="max-w-xl mb-16">
-            <span className="text-sm tracking-[0.2em] uppercase text-primary">
-              услуги
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl mt-3">
-              Что я предлагаю
-            </h2>
+            <span className="text-sm tracking-[0.2em] uppercase text-primary">услуги</span>
+            <h2 className="font-display text-4xl md:text-5xl mt-3">Что я предлагаю</h2>
           </div>
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES.map((s) => (
-              <div
-                key={s.name}
-                className="hover-lift bg-card rounded-2xl p-8 border border-border/60"
-              >
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+              <div key={s.name} className="hover-lift bg-card rounded-2xl p-8 border border-border/60 flex flex-col">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 shrink-0">
                   <Icon name={s.icon} className="text-primary" size={22} />
                 </div>
-                <h3 className="font-display text-2xl mb-2">{s.name}</h3>
-                <p className="text-muted-foreground mb-6">{s.desc}</p>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground flex items-center gap-2">
-                    <Icon name="Clock" size={16} /> {s.duration}
-                  </span>
-                  <span className="font-medium text-foreground text-lg">
-                    {s.price}
-                  </span>
+                <h3 className="font-display text-xl mb-3">{s.name}</h3>
+                <p className="text-muted-foreground text-sm mb-6 flex-1">{s.desc}</p>
+                <div className="border-t border-border/40 pt-4 mt-auto">
+                  <div className="flex items-center justify-between">
+                    <span className="text-muted-foreground text-sm flex items-center gap-2">
+                      <Icon name="Clock" size={14} /> {s.duration}
+                    </span>
+                    <div className="text-right">
+                      <div className="text-xs text-muted-foreground line-through">{s.price}</div>
+                      <div className="text-primary font-medium">{s.sale} <span className="text-xs text-muted-foreground font-normal">акция</span></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+          <p className="mt-6 text-sm text-muted-foreground text-center">
+            * Акция «Знакомство» — цена первого сеанса для новых клиентов
+          </p>
         </div>
       </section>
 
@@ -207,34 +223,33 @@ const Index = () => {
             </div>
           </div>
           <div className="md:col-span-3">
-            <span className="text-sm tracking-[0.2em] uppercase text-primary">
-              обо мне
-            </span>
+            <span className="text-sm tracking-[0.2em] uppercase text-primary">обо мне</span>
             <h2 className="font-display text-4xl md:text-5xl mt-3 mb-6">
-              Результат, а не разговоры
+              Ваше тело — моя работа
             </h2>
             <p className="text-lg text-muted-foreground mb-4">
-              Меня зовут Алексей. Более 8 лет я работаю с телом: спортсмены,
-              офисные работники, восстановление после травм. Знаю анатомию и
-              работаю на результат.
+              Меня зовут Евгений. Более 8 лет я работаю с телом: восстановление
+              после нагрузок, эстетика контура, возвращение лёгкости и тонуса.
+              Владею техниками классического, лимфодренажного, медового массажа
+              и обёртываний. Работаю на результат, который виден и ощутим.
             </p>
             <p className="text-lg text-muted-foreground mb-8">
-              Каждый сеанс — это чёткая работа под вашу задачу: убрать боль,
-              снять зажимы, вернуть телу подвижность и силу.
+              Каждый сеанс — это не просто массаж, а продуманная схема под ваш
+              запрос. Хотите убрать отёчность и подтянуть контур — построим курс
+              лимфодренажа и обёртываний. Нужно снять боль и напряжение — глубоко
+              проработаем мышцы классической или комбинированной техникой. Хотите
+              мощный детокс — включим медовый массаж. Без спешки, с вниманием
+              к каждому участку тела.
             </p>
-            <div className="flex gap-10">
+            <div className="flex flex-wrap gap-10">
               {[
                 { n: '8+', l: 'лет практики' },
                 { n: '1200+', l: 'довольных клиентов' },
                 { n: '100%', l: 'индивидуальный подход' },
               ].map((stat) => (
                 <div key={stat.l}>
-                  <div className="font-display text-4xl text-primary">
-                    {stat.n}
-                  </div>
-                  <div className="text-sm text-muted-foreground mt-1">
-                    {stat.l}
-                  </div>
+                  <div className="font-display text-4xl text-primary">{stat.n}</div>
+                  <div className="text-sm text-muted-foreground mt-1">{stat.l}</div>
                 </div>
               ))}
             </div>
@@ -246,41 +261,32 @@ const Index = () => {
       <section id="booking" className="py-24 bg-primary/5">
         <div className="container max-w-3xl">
           <div className="text-center mb-12">
-            <span className="text-sm tracking-[0.2em] uppercase text-primary">
-              онлайн-запись
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl mt-3">
-              Выберите услугу и время
-            </h2>
+            <span className="text-sm tracking-[0.2em] uppercase text-primary">онлайн-запись</span>
+            <h2 className="font-display text-4xl md:text-5xl mt-3">Выберите услугу и время</h2>
+            <p className="text-muted-foreground mt-4 max-w-md mx-auto">
+              Оставьте заявку — я свяжусь с вами, чтобы подтвердить запись и ответить на вопросы.
+            </p>
           </div>
-          <form
-            onSubmit={handleSubmit}
-            className="bg-card rounded-3xl p-8 md:p-10 border border-border/60 shadow-sm"
-          >
-            <label className="block text-sm font-medium mb-3">Услуга</label>
+          <form onSubmit={handleSubmit} className="bg-card rounded-3xl p-8 md:p-10 border border-border/60 shadow-sm">
+            <label className="block text-sm font-medium mb-3">Желаемая услуга</label>
             <div className="grid sm:grid-cols-2 gap-3 mb-8">
-              {SERVICES.map((s) => (
+              {SERVICE_NAMES.map((name) => (
                 <button
                   type="button"
-                  key={s.name}
-                  onClick={() => setService(s.name)}
-                  className={`text-left rounded-xl border p-4 transition-colors ${
-                    service === s.name
-                      ? 'border-primary bg-primary/10'
-                      : 'border-border hover:border-primary/40'
+                  key={name}
+                  onClick={() => setSelectedService(name)}
+                  className={`text-left rounded-xl border p-4 text-sm transition-colors ${
+                    selectedService === name
+                      ? 'border-primary bg-primary/10 text-foreground'
+                      : 'border-border text-muted-foreground hover:border-primary/40'
                   }`}
                 >
-                  <div className="font-medium">{s.name}</div>
-                  <div className="text-sm text-muted-foreground">
-                    {s.duration} · {s.price}
-                  </div>
+                  {name}
                 </button>
               ))}
             </div>
 
-            <label className="block text-sm font-medium mb-3">
-              Удобное время
-            </label>
+            <label className="block text-sm font-medium mb-3">Удобное время</label>
             <div className="flex flex-wrap gap-3 mb-8">
               {TIMES.map((t) => (
                 <button
@@ -290,7 +296,7 @@ const Index = () => {
                   className={`rounded-full px-5 py-2.5 border text-sm transition-colors ${
                     time === t
                       ? 'border-primary bg-primary text-primary-foreground'
-                      : 'border-border hover:border-primary/40'
+                      : 'border-border text-muted-foreground hover:border-primary/40'
                   }`}
                 >
                   {t}
@@ -300,19 +306,11 @@ const Index = () => {
 
             <div className="grid sm:grid-cols-2 gap-4 mb-6">
               <Input placeholder="Ваше имя" className="h-12 rounded-xl" />
-              <Input
-                placeholder="Телефон"
-                type="tel"
-                className="h-12 rounded-xl"
-              />
+              <Input placeholder="Телефон" type="tel" className="h-12 rounded-xl" />
             </div>
 
-            <Button
-              type="submit"
-              size="lg"
-              className="w-full rounded-full h-12"
-            >
-              Записаться{time && ` на ${time}`}
+            <Button type="submit" size="lg" className="w-full rounded-full h-12">
+              Записаться{time ? ` на ${time}` : ''}
             </Button>
           </form>
         </div>
@@ -322,26 +320,19 @@ const Index = () => {
       <section id="reviews" className="py-24">
         <div className="container">
           <div className="text-center max-w-xl mx-auto mb-16">
-            <span className="text-sm tracking-[0.2em] uppercase text-primary">
-              отзывы
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl mt-3">
-              Что говорят клиенты
-            </h2>
+            <span className="text-sm tracking-[0.2em] uppercase text-primary">отзывы</span>
+            <h2 className="font-display text-4xl md:text-5xl mt-3">Что говорят клиенты</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {REVIEWS.map((r) => (
-              <div
-                key={r.name}
-                className="bg-card rounded-2xl p-8 border border-border/60"
-              >
+              <div key={r.name} className="bg-card rounded-2xl p-8 border border-border/60">
                 <div className="flex gap-1 mb-4 text-primary">
                   {[...Array(5)].map((_, i) => (
-                    <Icon key={i} name="Star" size={16} fill="currentColor" />
+                    <Icon key={i} name="Star" size={14} fill="currentColor" />
                   ))}
                 </div>
-                <p className="text-muted-foreground italic mb-6">“{r.text}”</p>
-                <div className="font-display text-xl">{r.name}</div>
+                <p className="text-muted-foreground italic mb-6 text-sm leading-relaxed">«{r.text}»</p>
+                <div className="font-display text-lg">— {r.name}</div>
               </div>
             ))}
           </div>
@@ -352,17 +343,16 @@ const Index = () => {
       <section id="contacts" className="py-24 bg-secondary/40">
         <div className="container grid md:grid-cols-2 gap-12">
           <div>
-            <span className="text-sm tracking-[0.2em] uppercase text-primary">
-              контакты
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl mt-3 mb-8">
-              Свяжитесь со мной
-            </h2>
+            <span className="text-sm tracking-[0.2em] uppercase text-primary">контакты</span>
+            <h2 className="font-display text-4xl md:text-5xl mt-3 mb-8">Свяжитесь со мной</h2>
+            <p className="text-muted-foreground mb-8">
+              Перед первым визитом свяжитесь со мной: обсудим ваш запрос,
+              подберём подходящую услугу и удобное время.
+            </p>
             <div className="space-y-5">
               {[
-                { icon: 'Phone', label: '+7 (900) 123-45-67' },
-                { icon: 'Mail', label: 'hello@master-massage.ru' },
-                { icon: 'MapPin', label: 'Москва, ул. Тихая, 12' },
+                { icon: 'Phone', label: '+7 (993) 338-73-73' },
+                { icon: 'MapPin', label: 'Москва, Пятницкая ул., 62с7' },
                 { icon: 'Clock', label: 'Ежедневно · 10:00 — 20:00' },
               ].map((c) => (
                 <div key={c.label} className="flex items-center gap-4">
@@ -374,7 +364,7 @@ const Index = () => {
               ))}
             </div>
             <div className="flex gap-3 mt-8">
-              {['Send', 'MessageCircle', 'Instagram'].map((i) => (
+              {['Send', 'MessageCircle', 'Phone'].map((i) => (
                 <a
                   key={i}
                   href="#"
@@ -393,8 +383,10 @@ const Index = () => {
 
       <footer className="py-10 border-t border-border/60">
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <span className="font-display text-xl text-foreground">МАСТЕР<span className="text-primary">.</span></span>
-          <span>© {new Date().getFullYear()} · Профессиональный массаж</span>
+          <span className="font-display text-xl text-foreground">
+            ЕВГЕНИЙ<span className="text-primary">.</span>
+          </span>
+          <span>© {new Date().getFullYear()} · Профессиональный массаж · Москва</span>
         </div>
       </footer>
     </div>
