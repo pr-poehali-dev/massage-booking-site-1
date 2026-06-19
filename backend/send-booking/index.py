@@ -1,16 +1,19 @@
 import json
 import os
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import urllib.request
 
-OWNER_EMAIL = "egmalakhov@mail.ru"
-SMTP_HOST = "smtp.mail.ru"
-SMTP_PORT = 465
+OWNER_CHAT_ID = "8713101042"
+
+
+def send_telegram(token: str, chat_id: str, text: str):
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    data = json.dumps({"chat_id": chat_id, "text": text, "parse_mode": "HTML"}).encode()
+    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
+    urllib.request.urlopen(req, timeout=10)
 
 
 def handler(event: dict, context) -> dict:
-    """Отправка уведомления о новой заявке на email владельца."""
+    """Отправка уведомления о новой заявке в Telegram."""
 
     if event.get('httpMethod') == 'OPTIONS':
         return {
@@ -37,31 +40,17 @@ def handler(event: dict, context) -> dict:
             'body': json.dumps({'error': 'Имя и телефон обязательны'}, ensure_ascii=False)
         }
 
-    smtp_password = os.environ.get('SMTP_PASSWORD', '')
+    token = os.environ.get('TELEGRAM_BOT_TOKEN', '')
 
-    subject = f"Новая заявка от {name}"
-    html_body = f"""
-    <div style="font-family: Arial, sans-serif; max-width: 500px;">
-      <h2 style="color: #c9a96e;">Новая заявка с сайта</h2>
-      <table style="width:100%; border-collapse:collapse;">
-        <tr><td style="padding:8px; color:#888;">Имя:</td><td style="padding:8px; font-weight:bold;">{name}</td></tr>
-        <tr style="background:#f9f9f9;"><td style="padding:8px; color:#888;">Телефон:</td><td style="padding:8px; font-weight:bold;"><a href="tel:{phone}">{phone}</a></td></tr>
-        <tr><td style="padding:8px; color:#888;">Услуга:</td><td style="padding:8px;">{service or 'не указана'}</td></tr>
-        <tr style="background:#f9f9f9;"><td style="padding:8px; color:#888;">Время:</td><td style="padding:8px;">{time or 'не указано'}</td></tr>
-      </table>
-      <p style="margin-top:20px; color:#888; font-size:12px;">Сайт Евгений Массаж</p>
-    </div>
-    """
+    message = (
+        f"📋 <b>Новая заявка с сайта!</b>\n\n"
+        f"👤 <b>Имя:</b> {name}\n"
+        f"📞 <b>Телефон:</b> {phone}\n"
+        f"💆 <b>Услуга:</b> {service or 'не указана'}\n"
+        f"🕐 <b>Время:</b> {time or 'не указано'}"
+    )
 
-    msg = MIMEMultipart('alternative')
-    msg['Subject'] = subject
-    msg['From'] = OWNER_EMAIL
-    msg['To'] = OWNER_EMAIL
-    msg.attach(MIMEText(html_body, 'html', 'utf-8'))
-
-    with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) as server:
-        server.login(OWNER_EMAIL, smtp_password)
-        server.sendmail(OWNER_EMAIL, OWNER_EMAIL, msg.as_string())
+    send_telegram(token, OWNER_CHAT_ID, message)
 
     return {
         'statusCode': 200,
