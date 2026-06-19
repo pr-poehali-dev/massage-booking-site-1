@@ -157,7 +157,7 @@ const Index = () => {
               профессиональный массаж
             </span>
             <h1 className="font-display text-5xl md:text-7xl leading-[1.02] mb-6">
-              Лёгкость.<br />Контур.<br />Сияние.
+              Лёгкость.<br />Контур.<br />Перезагрузка.
             </h1>
             <p className="text-lg text-muted-foreground max-w-md mb-10">
               Глубокая проработка мышц, моделирование контура тела и полная
