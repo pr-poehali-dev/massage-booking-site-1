@@ -373,7 +373,7 @@ const Index = () => {
               {[
                 { icon: 'Phone', label: '+7 (993) 338-73-73', href: 'tel:+79933387373' },
                 { icon: 'MapPin', label: 'Москва, Пятницкая ул., 62с7', href: null },
-                { icon: 'Clock', label: 'Ежедневно · 10:00 — 20:00', href: null },
+                { icon: 'Clock', label: 'По предварительной записи', href: null },
               ].map((c) => (
                 <div key={c.label} className="flex items-center gap-4">
                   <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
