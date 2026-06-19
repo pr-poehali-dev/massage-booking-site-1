@@ -5,8 +5,8 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 
 const CAROUSEL_IMGS = [
-  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/3e14353c-a22a-4cd7-a11b-52b88784d3dc.jpg', label: 'Классический массаж' },
-  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/bfd81f7d-b76d-4ec8-a690-3f2eed41b99f.jpg', label: 'Лимфодренаж' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/cfcf6f6c-2016-4cde-8548-81773e53c622.jpg', label: 'Классический массаж' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/8434d1b3-d604-4c32-9cad-cabfa3fc4c25.jpg', label: 'Лимфодренаж' },
   { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/d74e2b0e-5380-4b20-97f3-b9fd6423fc7d.jpg', label: 'Медовый массаж' },
   { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/61deb89e-1343-4c95-a71e-735084d616eb.jpg', label: 'Обёртывания' },
   { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/75126526-93ea-4a5a-8252-93f677c6ac37.jpg', label: 'Антицеллюлитный' },
