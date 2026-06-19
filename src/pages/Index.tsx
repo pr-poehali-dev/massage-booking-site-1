@@ -117,6 +117,9 @@ const Index = () => {
   const [time, setTime] = useState('');
   const [slide, setSlide] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [sending, setSending] = useState(false);
 
   const nextSlide = useCallback(() => setSlide((s) => (s + 1) % CAROUSEL_IMGS.length), []);
   const prevSlide = useCallback(() => setSlide((s) => (s - 1 + CAROUSEL_IMGS.length) % CAROUSEL_IMGS.length), []);
@@ -131,12 +134,31 @@ const Index = () => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: 'Заявка отправлена',
-      description: 'Евгений свяжется с вами, чтобы подтвердить запись.',
-    });
+    if (!name.trim() || !phone.trim()) {
+      toast({ title: 'Заполните имя и телефон', variant: 'destructive' });
+      return;
+    }
+    setSending(true);
+    try {
+      await fetch('https://functions.poehali.dev/a340d974-1fb9-4649-9187-df18894eeae3', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, service: selectedService, time }),
+      });
+      toast({
+        title: 'Заявка отправлена!',
+        description: 'Евгений свяжется с вами, чтобы подтвердить запись.',
+      });
+      setName('');
+      setPhone('');
+      setTime('');
+    } catch {
+      toast({ title: 'Ошибка отправки', description: 'Попробуйте ещё раз или позвоните напрямую.', variant: 'destructive' });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -425,12 +447,12 @@ const Index = () => {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-3 mb-5 md:mb-6">
-              <Input placeholder="Ваше имя" className="h-11 rounded-none border-border/40 focus:border-primary bg-transparent" />
-              <Input placeholder="Телефон" type="tel" className="h-11 rounded-none border-border/40 focus:border-primary bg-transparent" />
+              <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Ваше имя" className="h-11 rounded-none border-border/40 focus:border-primary bg-transparent" />
+              <Input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Телефон" type="tel" className="h-11 rounded-none border-border/40 focus:border-primary bg-transparent" />
             </div>
 
-            <Button type="submit" size="lg" className="w-full rounded-none h-12 text-xs tracking-widest uppercase">
-              Записаться{time ? ` на ${time}` : ''}
+            <Button type="submit" size="lg" disabled={sending} className="w-full rounded-none h-12 text-xs tracking-widest uppercase">
+              {sending ? 'Отправляем...' : `Записаться${time ? ` на ${time}` : ''}`}
             </Button>
           </form>
         </div>
