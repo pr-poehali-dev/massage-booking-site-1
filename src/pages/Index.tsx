@@ -6,7 +6,7 @@ import { useToast } from '@/hooks/use-toast';
 
 const CAROUSEL_IMGS = [
   { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/cfcf6f6c-2016-4cde-8548-81773e53c622.jpg', label: 'Классический массаж' },
-  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/e172a2d9-ed03-4981-b8f8-9b6e6a910a5a.jpg', label: 'Лимфодренаж' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/2103ac3d-3f72-469f-9bae-337824fcac51.jpg', label: 'Лимфодренаж' },
   { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/d74e2b0e-5380-4b20-97f3-b9fd6423fc7d.jpg', label: 'Медовый массаж' },
   { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/61deb89e-1343-4c95-a71e-735084d616eb.jpg', label: 'Обёртывания' },
   { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/75126526-93ea-4a5a-8252-93f677c6ac37.jpg', label: 'Антицеллюлитный' },
