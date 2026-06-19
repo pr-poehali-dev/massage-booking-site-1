@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 
 const HERO_IMG =
-  'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/1c509776-56db-4a08-8cd7-88527d45d208.jpg';
+  'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/8cabd1eb-8eed-4b1b-a9e0-75b8c8eb5693.jpg';
 
 const NAV = [
   { id: 'home', label: 'Главная' },
@@ -18,30 +18,30 @@ const NAV = [
 
 const SERVICES = [
   {
-    icon: 'Waves',
-    name: 'Классический массаж',
-    desc: 'Расслабление мышц, снятие напряжения и общий тонус тела.',
+    icon: 'Dumbbell',
+    name: 'Спортивный массаж',
+    desc: 'Восстановление после нагрузок, разгон лактата и подготовка мышц.',
     duration: '60 мин',
     price: '3 500 ₽',
   },
   {
-    icon: 'Flower2',
-    name: 'Релакс-массаж',
-    desc: 'Мягкие техники с ароматическими маслами для глубокого покоя.',
-    duration: '90 мин',
-    price: '4 800 ₽',
-  },
-  {
     icon: 'Mountain',
     name: 'Глубокотканный',
-    desc: 'Проработка глубоких слоёв мышц, для активных и спортивных людей.',
+    desc: 'Жёсткая проработка глубоких слоёв мышц и хронических зажимов.',
     duration: '75 мин',
     price: '4 500 ₽',
   },
   {
-    icon: 'Sparkles',
+    icon: 'Activity',
+    name: 'Лечебный массаж',
+    desc: 'Работа со спиной, шеей и осанкой. Снятие боли и напряжения.',
+    duration: '90 мин',
+    price: '4 800 ₽',
+  },
+  {
+    icon: 'Zap',
     name: 'Антистресс-сеанс',
-    desc: 'Спина, шея, голова — точечное снятие стресса за один визит.',
+    desc: 'Спина, шея, голова — мощная разгрузка за один визит.',
     duration: '45 мин',
     price: '2 900 ₽',
   },
@@ -49,16 +49,16 @@ const SERVICES = [
 
 const REVIEWS = [
   {
-    name: 'Анна',
-    text: 'Никогда не чувствовала себя настолько отдохнувшей. Тёплая атмосфера и невероятно бережные руки.',
+    name: 'Андрей',
+    text: 'После зала мышцы забиты в камень. Мастер реально знает анатомию — восстановление в два раза быстрее.',
   },
   {
-    name: 'Дмитрий',
-    text: 'После сидячей работы спина была как камень. Уже после первого сеанса забыл о боли. Рекомендую!',
+    name: 'Сергей',
+    text: 'Сидячая работа убивала спину. Несколько сеансов — и боль ушла. Сильные, уверенные руки.',
   },
   {
-    name: 'Мария',
-    text: 'Это не просто массаж — это маленькое путешествие в тишину. Возвращаюсь каждую неделю.',
+    name: 'Игорь',
+    text: 'Без эзотерики и лишних слов — чёткая работа и результат. Хожу регулярно, рекомендую мужикам.',
   },
 ];
 
@@ -87,9 +87,9 @@ const Index = () => {
         <div className="container flex items-center justify-between h-16">
           <button
             onClick={() => scrollTo('home')}
-            className="font-display text-2xl tracking-tight text-primary"
+            className="font-display text-2xl tracking-tight text-foreground"
           >
-            tishina<span className="text-accent-foreground">.</span>
+            МАСТЕР<span className="text-primary">.</span>
           </button>
           <nav className="hidden md:flex items-center gap-8">
             {NAV.map((n) => (
@@ -119,14 +119,14 @@ const Index = () => {
         <div className="container grid md:grid-cols-2 gap-12 items-center py-20">
           <div className="animate-fade-up">
             <span className="inline-block text-sm tracking-[0.2em] uppercase text-primary mb-6">
-              частная практика массажа
+              профессиональный массаж
             </span>
-            <h1 className="font-display text-5xl md:text-7xl leading-[1.05] mb-6">
-              Пространство тишины и&nbsp;восстановления
+            <h1 className="font-display text-5xl md:text-7xl leading-[1.02] mb-6">
+              Сила.<br />Восстановление.<br />Тонус.
             </h1>
             <p className="text-lg text-muted-foreground max-w-md mb-10">
-              Бережный массаж, который возвращает телу лёгкость, а мыслям —
-              ясность. Запишитесь на удобное время онлайн.
+              Глубокая проработка мышц, снятие зажимов и быстрое восстановление
+              тела. Запишитесь на удобное время онлайн.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button
@@ -151,11 +151,11 @@ const Index = () => {
             style={{ animationDelay: '0.15s' }}
           >
             <div className="relative">
-              <div className="absolute -inset-4 rounded-[2rem] bg-accent/40 blur-2xl" />
+              <div className="absolute -inset-4 rounded-[1rem] bg-primary/20 blur-3xl" />
               <img
                 src={HERO_IMG}
-                alt="Спокойная атмосфера массажного кабинета"
-                className="relative rounded-[2rem] w-full aspect-square object-cover shadow-xl"
+                alt="Профессиональный массаж от мастера"
+                className="relative rounded-[1rem] w-full aspect-square object-cover shadow-2xl ring-1 ring-border"
               />
             </div>
           </div>
@@ -202,8 +202,8 @@ const Index = () => {
       <section id="about" className="py-24">
         <div className="container grid md:grid-cols-5 gap-12 items-center">
           <div className="md:col-span-2">
-            <div className="aspect-[4/5] rounded-[2rem] bg-accent/40 flex items-center justify-center">
-              <Icon name="HandHeart" size={64} className="text-primary/50" />
+            <div className="aspect-[4/5] rounded-[1rem] bg-secondary flex items-center justify-center border border-border">
+              <Icon name="User" size={64} className="text-primary/50" />
             </div>
           </div>
           <div className="md:col-span-3">
@@ -211,16 +211,16 @@ const Index = () => {
               обо мне
             </span>
             <h2 className="font-display text-4xl md:text-5xl mt-3 mb-6">
-              Забота, в которую веришь
+              Результат, а не разговоры
             </h2>
             <p className="text-lg text-muted-foreground mb-4">
-              Меня зовут Елена. Более 8 лет я помогаю людям возвращать телу
-              комфорт, а себе — внутренний баланс. Каждый сеанс я выстраиваю
-              индивидуально, прислушиваясь к вашим ощущениям.
+              Меня зовут Алексей. Более 8 лет я работаю с телом: спортсмены,
+              офисные работники, восстановление после травм. Знаю анатомию и
+              работаю на результат.
             </p>
             <p className="text-lg text-muted-foreground mb-8">
-              Я верю, что массаж — это диалог между руками и телом, где главное
-              доверие и тишина.
+              Каждый сеанс — это чёткая работа под вашу задачу: убрать боль,
+              снять зажимы, вернуть телу подвижность и силу.
             </p>
             <div className="flex gap-10">
               {[
@@ -361,7 +361,7 @@ const Index = () => {
             <div className="space-y-5">
               {[
                 { icon: 'Phone', label: '+7 (900) 123-45-67' },
-                { icon: 'Mail', label: 'hello@tishina-massage.ru' },
+                { icon: 'Mail', label: 'hello@master-massage.ru' },
                 { icon: 'MapPin', label: 'Москва, ул. Тихая, 12' },
                 { icon: 'Clock', label: 'Ежедневно · 10:00 — 20:00' },
               ].map((c) => (
@@ -385,7 +385,7 @@ const Index = () => {
               ))}
             </div>
           </div>
-          <div className="bg-accent/30 rounded-[2rem] min-h-[300px] flex items-center justify-center">
+          <div className="bg-card border border-border rounded-[1rem] min-h-[300px] flex items-center justify-center">
             <Icon name="Map" size={56} className="text-primary/40" />
           </div>
         </div>
@@ -393,8 +393,8 @@ const Index = () => {
 
       <footer className="py-10 border-t border-border/60">
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <span className="font-display text-xl text-primary">tishina.</span>
-          <span>© {new Date().getFullYear()} · Частная практика массажа</span>
+          <span className="font-display text-xl text-foreground">МАСТЕР<span className="text-primary">.</span></span>
+          <span>© {new Date().getFullYear()} · Профессиональный массаж</span>
         </div>
       </footer>
     </div>
