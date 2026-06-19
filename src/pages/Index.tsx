@@ -360,59 +360,74 @@ const Index = () => {
       </section>
 
       {/* Contacts */}
-      <section id="contacts" className="py-24 bg-secondary/40">
-        <div className="container grid md:grid-cols-2 gap-12">
-          <div>
+      <section id="contacts" className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background pointer-events-none" />
+        <div className="container relative">
+          <div className="text-center mb-16">
             <span className="text-sm tracking-[0.2em] uppercase text-primary">контакты</span>
-            <h2 className="font-display text-4xl md:text-5xl mt-3 mb-8">Свяжитесь со мной</h2>
-            <p className="text-muted-foreground mb-8">
-              Перед первым визитом свяжитесь со мной: обсудим ваш запрос,
-              подберём подходящую услугу и удобное время.
+            <h2 className="font-display text-4xl md:text-6xl mt-3">Свяжитесь со мной</h2>
+            <p className="text-muted-foreground mt-4 max-w-md mx-auto">
+              Обсудим ваш запрос, подберём услугу и удобное время
             </p>
-            <div className="space-y-5">
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <div className="grid sm:grid-cols-3 gap-4 mb-8">
               {[
-                { icon: 'Phone', label: '+7 (993) 338-73-73', href: 'tel:+79933387373' },
-                { icon: 'MapPin', label: 'Москва, Пятницкая ул., 62с7', href: null },
-                { icon: 'Clock', label: 'По предварительной записи', href: null },
+                { icon: 'Phone', label: 'Телефон', value: '+7 (993) 338-73-73', href: 'tel:+79933387373' },
+                { icon: 'MapPin', label: 'Адрес', value: 'Москва, Пятницкая ул., 62с7', href: null },
+                { icon: 'Clock', label: 'Режим', value: 'По предварительной записи', href: null },
               ].map((c) => (
-                <div key={c.label} className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                <div key={c.label} className="bg-card border border-border/60 rounded-2xl p-6 flex flex-col gap-3 hover:border-primary/40 transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                     <Icon name={c.icon} size={18} className="text-primary" />
                   </div>
-                  {c.href ? (
-                    <a href={c.href} className="text-lg hover:text-primary transition-colors">{c.label}</a>
-                  ) : (
-                    <span className="text-lg">{c.label}</span>
-                  )}
+                  <div>
+                    <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{c.label}</div>
+                    {c.href ? (
+                      <a href={c.href} className="font-medium hover:text-primary transition-colors">{c.value}</a>
+                    ) : (
+                      <span className="font-medium">{c.value}</span>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
-            <div className="flex gap-3 mt-8">
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="https://t.me/+79933387373"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-border hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-medium"
+                className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-card border border-border/60 hover:border-primary/40 hover:bg-primary/5 transition-all text-sm font-medium group"
               >
-                <Icon name="Send" size={16} /> Telegram
+                <Icon name="Send" size={18} className="text-primary" />
+                <span>Написать в Telegram</span>
               </a>
               <a
                 href="https://wa.me/79933387373"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-border hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-medium"
+                className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-card border border-border/60 hover:border-primary/40 hover:bg-primary/5 transition-all text-sm font-medium group"
               >
-                <Icon name="MessageCircle" size={16} /> WhatsApp
+                <Icon name="MessageCircle" size={18} className="text-primary" />
+                <span>Написать в WhatsApp</span>
+              </a>
+              <a
+                href="https://dikidi.app/2093993"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-primary text-primary-foreground hover:opacity-90 transition-all text-sm font-medium"
+              >
+                <Icon name="CalendarCheck" size={18} />
+                <span>Записаться онлайн</span>
               </a>
             </div>
-          </div>
-          <div className="bg-card border border-border rounded-[1rem] min-h-[300px] flex items-center justify-center">
-            <Icon name="Map" size={56} className="text-primary/40" />
           </div>
         </div>
       </section>
 
-      <footer className="py-10 border-t border-border/60">
+      <footer className="py-10 border-t border-border/40 bg-secondary/20">
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <span className="font-display text-xl text-foreground">
             ЕВГЕНИЙ<span className="text-primary">.</span>
