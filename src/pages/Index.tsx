@@ -57,6 +57,14 @@ const SERVICES = [
     price: '3 200 ₽',
     sale: '2 800 ₽',
   },
+  {
+    icon: 'PackageCheck',
+    name: 'Массаж всего тела + обёртывание',
+    desc: 'Комплексная программа: глубокая проработка мышц и завершающее обёртывание на выбор. Максимальный результат за один визит.',
+    duration: '2 часа',
+    price: '5 000 ₽',
+    sale: '',
+  },
 ];
 
 const REVIEWS = [
@@ -88,6 +96,7 @@ const SERVICE_NAMES = [
   'Комбинированный массаж-конструктор',
   'Медовый массаж',
   'Обёртывания',
+  'Массаж всего тела + обёртывание',
   'Затрудняюсь выбрать',
 ];
 
@@ -200,8 +209,14 @@ const Index = () => {
                       <Icon name="Clock" size={14} /> {s.duration}
                     </span>
                     <div className="text-right">
-                      <div className="text-xs text-muted-foreground line-through">{s.price}</div>
-                      <div className="text-primary font-medium">{s.sale} <span className="text-xs text-muted-foreground font-normal">акция</span></div>
+                      {s.sale ? (
+                        <>
+                          <div className="text-xs text-muted-foreground line-through">{s.price}</div>
+                          <div className="text-primary font-medium">{s.sale} <span className="text-xs text-muted-foreground font-normal">акция</span></div>
+                        </>
+                      ) : (
+                        <div className="text-primary font-medium text-lg">{s.price}</div>
+                      )}
                     </div>
                   </div>
                 </div>
