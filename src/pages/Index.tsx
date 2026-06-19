@@ -417,14 +417,11 @@ const Index = () => {
             <p className="text-muted-foreground text-sm mb-8 leading-relaxed max-w-sm mx-auto">
               Выберите услугу, дату и удобное время — подтверждение придёт сразу после записи
             </p>
-            <a href="https://dikidi.app/2093993" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="rounded-none px-12 h-13 text-sm tracking-widest uppercase w-full sm:w-auto">
+            <a href="https://dikidi.app/2093993" target="_blank" rel="noopener noreferrer" className="block w-full sm:w-auto sm:inline-block">
+              <Button size="lg" className="rounded-none px-16 h-16 text-base tracking-widest uppercase w-full sm:w-auto">
                 Записаться онлайн
               </Button>
             </a>
-            <p className="text-xs text-muted-foreground mt-5 tracking-wider">
-              Или позвоните: <a href="tel:+79933387373" className="text-primary hover:underline">+7 (993) 338-73-73</a>
-            </p>
           </div>
         </div>
       </section>
