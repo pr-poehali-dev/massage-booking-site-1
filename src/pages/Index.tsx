@@ -371,15 +371,19 @@ const Index = () => {
             </p>
             <div className="space-y-5">
               {[
-                { icon: 'Phone', label: '+7 (993) 338-73-73' },
-                { icon: 'MapPin', label: 'Москва, Пятницкая ул., 62с7' },
-                { icon: 'Clock', label: 'Ежедневно · 10:00 — 20:00' },
+                { icon: 'Phone', label: '+7 (993) 338-73-73', href: 'tel:+79933387373' },
+                { icon: 'MapPin', label: 'Москва, Пятницкая ул., 62с7', href: null },
+                { icon: 'Clock', label: 'Ежедневно · 10:00 — 20:00', href: null },
               ].map((c) => (
                 <div key={c.label} className="flex items-center gap-4">
                   <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <Icon name={c.icon} size={18} className="text-primary" />
                   </div>
-                  <span className="text-lg">{c.label}</span>
+                  {c.href ? (
+                    <a href={c.href} className="text-lg hover:text-primary transition-colors">{c.label}</a>
+                  ) : (
+                    <span className="text-lg">{c.label}</span>
+                  )}
                 </div>
               ))}
             </div>
