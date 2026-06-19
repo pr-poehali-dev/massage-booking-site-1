@@ -233,9 +233,11 @@ const Index = () => {
       <section id="about" className="py-24">
         <div className="container grid md:grid-cols-5 gap-12 items-center">
           <div className="md:col-span-2">
-            <div className="aspect-[4/5] rounded-[1rem] bg-secondary flex items-center justify-center border border-border">
-              <Icon name="User" size={64} className="text-primary/50" />
-            </div>
+            <img
+              src={HERO_IMG}
+              alt="Евгений — профессиональный массажист"
+              className="rounded-[1rem] w-full object-cover object-top"
+            />
           </div>
           <div className="md:col-span-3">
             <span className="text-sm tracking-[0.2em] uppercase text-primary">обо мне</span>
