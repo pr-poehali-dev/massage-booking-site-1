@@ -1,8 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
+
+const CAROUSEL_IMGS = [
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/c1e148ae-bcc2-43ab-ade6-b204f32d8c20.jpg', label: 'Классический массаж' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/b0769036-657b-4e48-82a3-76ba2f08fd53.jpg', label: 'Лимфодренаж' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/5fc6f530-28cc-49f9-8f92-c306918ccb9b.jpg', label: 'Медовый массаж' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/c0c3c95e-d54b-4064-b5d7-9727c19b07b0.jpg', label: 'Обёртывания' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/e0fc7b11-f53c-4160-80f9-0b917cd4d1cb.jpg', label: 'Антицеллюлитный' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/1d1dccad-8418-4f74-9363-ef0c1e00c7dc.jpg', label: 'Кабинет' },
+];
 
 const HERO_IMG =
   'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/28ffc5f0-71c5-447f-9ed0-c48abdf9dc70.jpeg';
@@ -109,6 +118,15 @@ const Index = () => {
   const { toast } = useToast();
   const [selectedService, setSelectedService] = useState(SERVICE_NAMES[0]);
   const [time, setTime] = useState('');
+  const [slide, setSlide] = useState(0);
+
+  const nextSlide = useCallback(() => setSlide((s) => (s + 1) % CAROUSEL_IMGS.length), []);
+  const prevSlide = useCallback(() => setSlide((s) => (s - 1 + CAROUSEL_IMGS.length) % CAROUSEL_IMGS.length), []);
+
+  useEffect(() => {
+    const t = setInterval(nextSlide, 4000);
+    return () => clearInterval(t);
+  }, [nextSlide]);
 
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -181,16 +199,51 @@ const Index = () => {
             </div>
           </div>
           <div className="animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            <div className="relative">
+            <div className="relative group">
               <div className="absolute -inset-8 bg-primary/10 blur-[80px] rounded-full" />
-              <div className="absolute -top-3 -right-3 w-24 h-24 border border-primary/20 rounded-none" />
-              <div className="absolute -bottom-3 -left-3 w-16 h-16 border border-primary/10 rounded-none" />
-              <img
-                src={HERO_DECOR_IMG}
-                alt="Массаж"
-                className="relative w-full aspect-square object-cover shadow-2xl"
-                style={{ clipPath: 'polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%)' }}
-              />
+              <div className="absolute -top-3 -right-3 w-24 h-24 border border-primary/20" />
+              <div className="absolute -bottom-3 -left-3 w-16 h-16 border border-primary/10" />
+
+              {/* Карусель */}
+              <div className="relative overflow-hidden shadow-2xl" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%)' }}>
+                {CAROUSEL_IMGS.map((img, i) => (
+                  <div
+                    key={img.src}
+                    className="absolute inset-0 transition-opacity duration-700"
+                    style={{ opacity: i === slide ? 1 : 0, position: i === slide ? 'relative' : 'absolute' }}
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.label}
+                      className="w-full aspect-square object-cover"
+                    />
+                  </div>
+                ))}
+
+                {/* Лейбл */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-6 py-4">
+                  <span className="text-xs tracking-[0.25em] uppercase text-white/80">{CAROUSEL_IMGS[slide].label}</span>
+                </div>
+
+                {/* Кнопки */}
+                <button onClick={prevSlide} className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white transition-colors opacity-0 group-hover:opacity-100">
+                  <Icon name="ChevronLeft" size={16} />
+                </button>
+                <button onClick={nextSlide} className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white transition-colors opacity-0 group-hover:opacity-100">
+                  <Icon name="ChevronRight" size={16} />
+                </button>
+              </div>
+
+              {/* Точки */}
+              <div className="flex gap-2 justify-center mt-4">
+                {CAROUSEL_IMGS.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setSlide(i)}
+                    className={`h-px transition-all duration-300 ${i === slide ? 'w-8 bg-primary' : 'w-4 bg-border'}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
