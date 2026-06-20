@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 
 const CAROUSEL_IMGS = [
-  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/93477603-0d4a-4d9e-a593-a7cc52e00107.jpg', label: 'Классический массаж' },
+  { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/9836484f-36a5-4043-9c4a-0580b83bda43.jpg', label: 'Классический массаж' },
   { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/2103ac3d-3f72-469f-9bae-337824fcac51.jpg', label: 'Лимфодренаж' },
   { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/d74e2b0e-5380-4b20-97f3-b9fd6423fc7d.jpg', label: 'Медовый массаж' },
   { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/61deb89e-1343-4c95-a71e-735084d616eb.jpg', label: 'Обёртывания' },
