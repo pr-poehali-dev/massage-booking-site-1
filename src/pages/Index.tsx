@@ -229,11 +229,11 @@ const Index = () => {
               <span className="text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-primary">профессиональный массаж · москва</span>
             </div>
             <h1 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] mb-6 md:mb-8 text-foreground">
-              Лёгкость.<br /><span className="text-primary">Контур.</span><br />Перезагрузка.
+              Лёгкость.<br /><span className="text-primary">Силуэт.</span><br />Сияние.
             </h1>
             <p className="text-sm md:text-base text-muted-foreground max-w-sm mb-8 md:mb-10 leading-relaxed">
-              Глубокая проработка мышц, моделирование контура тела и полная
-              перезагрузка за один визит.
+              Глубокая проработка мышц, моделирование силуэта тела и сияние кожи
+              за один визит.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <a href="https://dikidi.app/2093993" target="_blank" rel="noopener noreferrer">
