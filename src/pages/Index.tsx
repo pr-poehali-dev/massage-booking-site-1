@@ -603,10 +603,12 @@ const Index = () => {
 
       <footer className="py-6 md:py-8 border-t border-border/20">
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4 text-center sm:text-left">
-          <span className="font-display text-lg tracking-widest text-foreground">
-            ЕВГЕНИЙ<span className="text-primary">.</span>
-          </span>
-          <span className="text-xs tracking-wider text-muted-foreground uppercase">© {new Date().getFullYear()} · Профессиональный массаж · Москва</span>
+          <img
+            src="https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/df4baaaa-750c-4bbe-b363-546c48d05ffb.png"
+            alt="ЛИМФОТОК"
+            className="h-6 w-auto invert opacity-70"
+          />
+          <span className="text-xs tracking-wider text-muted-foreground uppercase">© {new Date().getFullYear()} · Массаж и эстетика тела · Москва</span>
           <a
             href="https://dikidi.app/2093993"
             target="_blank"
