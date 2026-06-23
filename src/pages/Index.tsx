@@ -170,7 +170,7 @@ const Index = () => {
             onClick={() => scrollTo('home')}
             className="font-display text-base md:text-xl tracking-widest text-foreground"
           >
-            ЕВГЕНИЙ <span className="text-primary">МАССАЖ</span>
+            «ГРАНЬ ТЕЛА» <span className="text-primary">кабинет эстетического массажа</span>
           </button>
           <nav className="hidden md:flex items-center gap-8">
             {NAV.map((n) => (
