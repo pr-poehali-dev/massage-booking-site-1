@@ -170,7 +170,7 @@ const Index = () => {
             onClick={() => scrollTo('home')}
             className="font-display text-base md:text-xl tracking-widest text-foreground"
           >
-            «ГРАНЬ ТЕЛА» <span className="text-primary">кабинет эстетического массажа</span>
+            ФЛЮИД <span className="text-primary">авторский массаж</span>
           </button>
           <nav className="hidden md:flex items-center gap-8">
             {NAV.map((n) => (
@@ -226,7 +226,7 @@ const Index = () => {
           <div className="animate-fade-up order-2 md:order-1">
             <div className="flex items-center gap-3 mb-5 md:mb-8">
               <div className="h-px w-8 bg-primary" />
-              <span className="text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-primary">кабинет эстетического массажа · москва</span>
+              <span className="text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-primary">флюид авторский массаж · москва</span>
             </div>
             <h1 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] mb-6 md:mb-8 text-foreground">
               Лёгкость.<br /><span className="text-primary">Силуэт.</span><br />Сияние.
