@@ -168,9 +168,13 @@ const Index = () => {
         <div className="container flex items-center justify-between h-14 md:h-16">
           <button
             onClick={() => scrollTo('home')}
-            className="font-display text-base md:text-xl tracking-widest text-foreground"
+            className="flex items-center"
           >
-            ФЛЮИД <span className="text-primary">авторский массаж</span>
+            <img
+              src="https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/08404769-cbeb-432c-855c-166782debddf.png"
+              alt="ФЛЮИД авторский массаж"
+              className="h-8 md:h-10 w-auto"
+            />
           </button>
           <nav className="hidden md:flex items-center gap-8">
             {NAV.map((n) => (
