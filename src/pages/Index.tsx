@@ -256,8 +256,6 @@ const Index = () => {
           <div className="animate-fade-up order-1 md:order-2" style={{ animationDelay: '0.2s' }}>
             <div className="relative group">
               <div className="absolute -inset-8 bg-primary/10 blur-[80px] rounded-full" />
-              <div className="absolute -top-3 -right-3 w-16 md:w-24 h-16 md:h-24 border border-primary/20" />
-              <div className="absolute -bottom-3 -left-3 w-10 md:w-16 h-10 md:h-16 border border-primary/10" />
 
               {/* Карусель */}
               <div className="relative overflow-hidden shadow-2xl" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%)' }}>
