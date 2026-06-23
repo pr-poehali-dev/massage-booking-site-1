@@ -171,7 +171,7 @@ const Index = () => {
             className="flex items-center"
           >
             <img
-              src="https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/08404769-cbeb-432c-855c-166782debddf.png"
+              src="https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/b0472a5d-a6d0-4ec1-9ec5-9670026bb257.png"
               alt="ФЛЮИД авторский массаж"
               className="h-8 md:h-10 w-auto invert"
             />
