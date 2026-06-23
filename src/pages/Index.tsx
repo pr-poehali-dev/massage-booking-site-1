@@ -173,7 +173,7 @@ const Index = () => {
             <img
               src="https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/08404769-cbeb-432c-855c-166782debddf.png"
               alt="ФЛЮИД авторский массаж"
-              className="h-8 md:h-10 w-auto"
+              className="h-8 md:h-10 w-auto invert"
             />
           </button>
           <nav className="hidden md:flex items-center gap-8">
