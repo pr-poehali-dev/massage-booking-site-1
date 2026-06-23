@@ -180,8 +180,8 @@ const Index = () => {
             className="flex items-center"
           >
             <img
-              src="https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/b0472a5d-a6d0-4ec1-9ec5-9670026bb257.png"
-              alt="ФЛЮИД авторский массаж"
+              src="https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/df4baaaa-750c-4bbe-b363-546c48d05ffb.png"
+              alt="ЛИМФОТОК — массаж и эстетика тела"
               className="h-8 md:h-10 w-auto invert"
             />
           </button>
@@ -239,7 +239,7 @@ const Index = () => {
           <div className="animate-fade-up order-2 md:order-1">
             <div className="flex items-center gap-3 mb-5 md:mb-8">
               <div className="h-px w-8 bg-primary" />
-              <span className="text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-primary">флюид авторский массаж · москва</span>
+              <span className="text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-primary">лимфоток · массаж и эстетика тела · москва</span>
             </div>
             <h1 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] mb-6 md:mb-8 text-foreground">
               Лёгкость.<br /><span className="text-primary">Силуэт.</span><br />Сияние.
