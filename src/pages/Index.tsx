@@ -26,10 +26,11 @@ const NAV = [
   { id: 'contacts', label: 'Контакты' },
 ];
 
-const DIPLOMAS: { title: string; src: string | null }[] = [
-  { title: 'Диплом 1', src: null },
-  { title: 'Диплом 2', src: null },
-  { title: 'Диплом 3', src: null },
+const DIPLOMAS: { title: string; src: string }[] = [
+  { title: 'Сертификат — Массажист универсал', src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/25dba4e2-63f9-4d72-b213-558663afc71f.jpeg' },
+  { title: 'Диплом о профессиональной переподготовке', src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/5140ea2e-bfe7-48c2-96eb-beb833837d70.jpeg' },
+  { title: 'Приложение к свидетельству', src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/d9b2fb52-98d4-4cfd-aef6-878b2eaf02ca.jpeg' },
+  { title: 'Свидетельство — Массажист универсал', src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/89adbd61-40e5-4b8b-8b1d-1959a3285489.jpeg' },
 ];
 
 const SERVICES = [
@@ -417,27 +418,22 @@ const Index = () => {
             </div>
             <Icon name="Award" className="text-primary hidden md:block" size={32} />
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {DIPLOMAS.map((d, i) => (
               <div key={i} className="card-premium overflow-hidden group">
-                {d.src ? (
-                  <button className="block w-full" onClick={() => setLightbox(d.src!)}>
+                <button className="block w-full text-left" onClick={() => setLightbox(d.src)}>
+                  <div className="overflow-hidden">
                     <img
                       src={d.src}
                       alt={d.title}
                       className="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="p-4 flex items-center justify-between">
-                      <span className="font-display text-sm tracking-wider">{d.title}</span>
-                      <Icon name="ZoomIn" size={14} className="text-primary" />
-                    </div>
-                  </button>
-                ) : (
-                  <div className="w-full aspect-[3/4] bg-muted/30 flex flex-col items-center justify-center gap-3 border border-dashed border-border/40">
-                    <Icon name="FileText" size={32} className="text-muted-foreground/40" />
-                    <span className="text-xs text-muted-foreground/50 tracking-widest uppercase">Фото скоро</span>
                   </div>
-                )}
+                  <div className="p-4 flex items-center justify-between gap-2">
+                    <span className="font-display text-xs tracking-wider leading-snug">{d.title}</span>
+                    <Icon name="ZoomIn" size={14} className="text-primary shrink-0" />
+                  </div>
+                </button>
               </div>
             ))}
           </div>
