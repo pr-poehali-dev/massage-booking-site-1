@@ -20,9 +20,16 @@ const NAV = [
   { id: 'home', label: 'Главная' },
   { id: 'services', label: 'Услуги' },
   { id: 'about', label: 'Обо мне' },
+  { id: 'diplomas', label: 'Дипломы' },
   { id: 'booking', label: 'Запись' },
   { id: 'reviews', label: 'Отзывы' },
   { id: 'contacts', label: 'Контакты' },
+];
+
+const DIPLOMAS: { title: string; src: string | null }[] = [
+  { title: 'Диплом 1', src: null },
+  { title: 'Диплом 2', src: null },
+  { title: 'Диплом 3', src: null },
 ];
 
 const SERVICES = [
@@ -120,6 +127,7 @@ const Index = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [sending, setSending] = useState(false);
+  const [lightbox, setLightbox] = useState<string | null>(null);
 
   const nextSlide = useCallback(() => setSlide((s) => (s + 1) % CAROUSEL_IMGS.length), []);
   const prevSlide = useCallback(() => setSlide((s) => (s - 1 + CAROUSEL_IMGS.length) % CAROUSEL_IMGS.length), []);
@@ -395,6 +403,67 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Diplomas */}
+      <section id="diplomas" className="py-16 md:py-28 bg-secondary/20">
+        <div className="container">
+          <div className="flex items-end justify-between mb-10 md:mb-16 border-b border-border/30 pb-6 md:pb-8">
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="h-px w-6 bg-primary" />
+                <span className="text-xs tracking-[0.3em] uppercase text-primary">документы</span>
+              </div>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl">Дипломы и сертификаты</h2>
+            </div>
+            <Icon name="Award" className="text-primary hidden md:block" size={32} />
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+            {DIPLOMAS.map((d, i) => (
+              <div key={i} className="card-premium overflow-hidden group">
+                {d.src ? (
+                  <button className="block w-full" onClick={() => setLightbox(d.src!)}>
+                    <img
+                      src={d.src}
+                      alt={d.title}
+                      className="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="p-4 flex items-center justify-between">
+                      <span className="font-display text-sm tracking-wider">{d.title}</span>
+                      <Icon name="ZoomIn" size={14} className="text-primary" />
+                    </div>
+                  </button>
+                ) : (
+                  <div className="w-full aspect-[3/4] bg-muted/30 flex flex-col items-center justify-center gap-3 border border-dashed border-border/40">
+                    <Icon name="FileText" size={32} className="text-muted-foreground/40" />
+                    <span className="text-xs text-muted-foreground/50 tracking-widest uppercase">Фото скоро</span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-white/70 hover:text-white"
+            onClick={() => setLightbox(null)}
+          >
+            <Icon name="X" size={24} />
+          </button>
+          <img
+            src={lightbox}
+            alt="Документ"
+            className="max-w-full max-h-full object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
       {/* Booking */}
       <section id="booking" className="py-16 md:py-28 bg-secondary/20 relative overflow-hidden">
