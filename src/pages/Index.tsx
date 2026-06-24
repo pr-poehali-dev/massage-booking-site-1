@@ -3,6 +3,7 @@ import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
+import DiplomaCarousel from '@/components/DiplomaCarousel';
 
 const CAROUSEL_IMGS = [
   { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/9836484f-36a5-4043-9c4a-0580b83bda43.jpg', label: 'Классический массаж' },
@@ -20,6 +21,7 @@ const NAV = [
   { id: 'home', label: 'Главная' },
   { id: 'services', label: 'Услуги' },
   { id: 'about', label: 'Обо мне' },
+  { id: 'diplomas', label: 'Дипломы' },
   { id: 'booking', label: 'Запись' },
   { id: 'reviews', label: 'Отзывы' },
   { id: 'contacts', label: 'Контакты' },
@@ -398,6 +400,34 @@ const Index = () => {
         </div>
       </section>
 
+
+      {/* Diplomas */}
+      <section id="diplomas" className="py-20 md:py-32" style={{ background: 'linear-gradient(135deg, #faf8f5 0%, #f5f0eb 50%, #faf8f5 100%)' }}>
+        <div className="container max-w-6xl">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Text */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px w-8 bg-primary" />
+                <span className="text-xs tracking-[0.3em] uppercase text-primary" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}>квалификация</span>
+              </div>
+              <h2
+                className="text-3xl md:text-4xl lg:text-5xl mb-8 text-foreground"
+                style={{ fontFamily: "'Tenor Sans', serif", letterSpacing: '0.06em', lineHeight: 1.2 }}
+              >
+                Экспертность,<br />подтверждённая<br />знаниями
+              </h2>
+              <div className="space-y-4 text-[15px] leading-relaxed" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300, color: '#4a4a4a' }}>
+                <p>Я дипломированный мастер эстетики тела. Осознанно пришёл в профессию и владею самыми актуальными техниками лимфодренажного массажа.</p>
+                <p>Я сторонник современного подхода: массаж должен приносить пользу и глубокое расслабление, а не боль и синяки. Мои дипломы и свидетельства получены в ведущих центрах страны — это значит, что я работаю по самым свежим, безопасным и передовым методикам.</p>
+                <p>Благодаря глубокому знанию анатомии и биомеханики, я не использую шаблонные схемы, а бережно подбираю силу движений под особенности именно вашего тела, помогая ему вернуть природную лёгкость и чёткие контуры.</p>
+              </div>
+            </div>
+            {/* Diploma carousel */}
+            <DiplomaCarousel />
+          </div>
+        </div>
+      </section>
 
       {/* Lightbox */}
       {lightbox && (
