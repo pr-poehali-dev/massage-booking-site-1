@@ -244,10 +244,14 @@ const Index = () => {
             <h1 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] mb-6 md:mb-8 text-foreground">
               Лёгкость.<br /><span className="text-primary">Силуэт.</span><br />Сияние.
             </h1>
-            <p className="text-sm md:text-base text-muted-foreground max-w-sm mb-8 md:mb-10 leading-relaxed">
-              Глубокая проработка мышц, моделирование силуэта тела и сияние кожи
-              за один визит.
+            <p className="text-sm md:text-base text-foreground/90 font-medium max-w-sm mb-4 md:mb-5 leading-relaxed tracking-wide">
+              ЛИМФОТОК — это не просто массаж.<br />Это архитектура вашего силуэта.
             </p>
+            <blockquote className="border-l-2 border-primary pl-4 mb-8 md:mb-10">
+              <p className="text-sm text-muted-foreground leading-relaxed italic">
+                «Я объединил глубокие знания биомеханики тела из профессионального спорта и мягкие французские техники лимфодренажа. Моя задача — убрать скрытые мышечные зажимы, которые блокируют лимфатическую систему, вывести лишнюю жидкость и вернуть вашему телу его природные, чёткие грани. Без боли, без синяков, с заботой о каждой клетке».
+              </p>
+            </blockquote>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <a href="https://dikidi.app/2093993" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="w-full sm:w-auto rounded-none px-8 md:px-10 h-12 text-xs tracking-widest uppercase">Записаться на сеанс</Button>
