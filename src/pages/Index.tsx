@@ -20,17 +20,9 @@ const NAV = [
   { id: 'home', label: 'Главная' },
   { id: 'services', label: 'Услуги' },
   { id: 'about', label: 'Обо мне' },
-  { id: 'diplomas', label: 'Дипломы' },
   { id: 'booking', label: 'Запись' },
   { id: 'reviews', label: 'Отзывы' },
   { id: 'contacts', label: 'Контакты' },
-];
-
-const DIPLOMAS: { title: string; src: string }[] = [
-  { title: 'Сертификат — Массажист универсал', src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/25dba4e2-63f9-4d72-b213-558663afc71f.jpeg' },
-  { title: 'Диплом о профессиональной переподготовке', src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/5140ea2e-bfe7-48c2-96eb-beb833837d70.jpeg' },
-  { title: 'Приложение к свидетельству', src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/d9b2fb52-98d4-4cfd-aef6-878b2eaf02ca.jpeg' },
-  { title: 'Свидетельство — Массажист универсал', src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/89adbd61-40e5-4b8b-8b1d-1959a3285489.jpeg' },
 ];
 
 const SERVICES = [
@@ -406,40 +398,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Diplomas */}
-      <section id="diplomas" className="py-16 md:py-28 bg-secondary/20">
-        <div className="container">
-          <div className="flex items-end justify-between mb-10 md:mb-16 border-b border-border/30 pb-6 md:pb-8">
-            <div>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="h-px w-6 bg-primary" />
-                <span className="text-xs tracking-[0.3em] uppercase text-primary">документы</span>
-              </div>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl">Дипломы и сертификаты</h2>
-            </div>
-            <Icon name="Award" className="text-primary hidden md:block" size={32} />
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-            {DIPLOMAS.map((d, i) => (
-              <div key={i} className="card-premium overflow-hidden group">
-                <button className="block w-full text-left" onClick={() => setLightbox(d.src)}>
-                  <div className="overflow-hidden">
-                    <img
-                      src={d.src}
-                      alt={d.title}
-                      className="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-4 flex items-center justify-between gap-2">
-                    <span className="font-display text-xs tracking-wider leading-snug">{d.title}</span>
-                    <Icon name="ZoomIn" size={14} className="text-primary shrink-0" />
-                  </div>
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Lightbox */}
       {lightbox && (
