@@ -241,9 +241,6 @@ const Index = () => {
               <div className="h-px w-8 bg-primary" />
               <span className="text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-primary">лимфоток · массаж и эстетика тела · москва</span>
             </div>
-            <h1 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] mb-6 md:mb-8 text-foreground">
-              Лёгкость.<br /><span className="text-primary">Силуэт.</span><br />Сияние.
-            </h1>
             <p className="text-sm md:text-base text-foreground/90 font-medium max-w-sm mb-4 md:mb-5 leading-relaxed tracking-wide">
               ЛИМФОТОК — это не просто массаж.<br />Это архитектура вашего силуэта.
             </p>
