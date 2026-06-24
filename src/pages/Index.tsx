@@ -15,7 +15,7 @@ const CAROUSEL_IMGS = [
 ];
 
 const HERO_IMG =
-  'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/28ffc5f0-71c5-447f-9ed0-c48abdf9dc70.jpeg';
+  'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/2df0f0ff-b446-4131-896c-3988fe969139.jpeg';
 
 const NAV = [
   { id: 'home', label: 'Главная' },
