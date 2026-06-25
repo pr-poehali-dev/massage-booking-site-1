@@ -11,8 +11,8 @@ const PLANS = [
     desc: 'Мягкая авторская техника, запускающая движение лимфы. Уходят отёки и застоявшаяся жидкость, проявляются контуры, возвращается лёгкость и подтянутость силуэта.',
     featured: true,
     options: {
-      '60': { base: '3 500 ₽', sale: '3 000 ₽', note: 'Экспресс-сеанс: интенсивный запуск лимфы и снятие утренней тяжести.' },
-      '90': { base: '4 500 ₽', sale: '4 000 ₽', note: 'Комплексный лимфодренаж всего тела для максимального моделирования силуэта.' },
+      '60': { price: '3 500 ₽', note: 'Экспресс-сеанс: интенсивный запуск лимфы и снятие утренней тяжести.' },
+      '90': { price: '4 500 ₽', note: 'Комплексный лимфодренаж всего тела для максимального моделирования силуэта.' },
     },
   },
   {
@@ -22,8 +22,8 @@ const PLANS = [
     desc: 'Глубокое ручное воздействие, которое возвращает коже упругость, снимает накопленное напряжение и пробуждает природный тонус тела — от шеи до стоп.',
     featured: false,
     options: {
-      '60': { base: '3 000 ₽', sale: '2 500 ₽', note: 'Идеально, чтобы быстро снять зажимы в спине и шее после рабочего дня.' },
-      '90': { base: '4 000 ₽', sale: '3 500 ₽', note: 'Тотальное восстановление и глубокая анатомическая проработка каждой мышцы.' },
+      '60': { price: '3 000 ₽', note: 'Идеально, чтобы быстро снять зажимы в спине и шее после рабочего дня.' },
+      '90': { price: '4 000 ₽', note: 'Тотальное восстановление и глубокая анатомическая проработка каждой мышцы.' },
     },
   },
 ];
@@ -87,14 +87,7 @@ export default function PriceList() {
                   >
                     {plan.tag}
                   </span>
-                  {plan.featured && (
-                    <span
-                      className="text-[10px] tracking-[0.15em] uppercase"
-                      style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300, color: 'rgba(255,255,255,0.4)' }}
-                    >
-                      акция −20%
-                    </span>
-                  )}
+
                 </div>
 
                 {/* Название */}
@@ -167,17 +160,7 @@ export default function PriceList() {
                         color: plan.featured ? '#f5ebe6' : '#2d2420',
                       }}
                     >
-                      {opt.sale}
-                    </span>
-                    <span
-                      className="text-sm line-through"
-                      style={{
-                        fontFamily: 'Montserrat, sans-serif',
-                        fontWeight: 300,
-                        color: plan.featured ? 'rgba(245,235,230,0.35)' : 'rgba(45,36,32,0.35)',
-                      }}
-                    >
-                      {opt.base}
+                      {opt.price}
                     </span>
                   </div>
                   <p
@@ -213,12 +196,7 @@ export default function PriceList() {
           })}
         </div>
 
-        <p
-          className="mt-5 text-xs text-muted-foreground tracking-wider"
-          style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
-        >
-          * Цена по акции действует для новых клиентов на первый сеанс-знакомство
-        </p>
+
       </div>
     </section>
   );
