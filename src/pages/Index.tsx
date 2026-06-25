@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import DiplomaCarousel from '@/components/DiplomaCarousel';
+import PriceList from '@/components/PriceList';
 
 const CAROUSEL_IMGS = [
   { src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/files/9836484f-36a5-4043-9c4a-0580b83bda43.jpg', label: 'Классический массаж' },
@@ -20,8 +21,8 @@ const HERO_IMG =
 const NAV = [
   { id: 'home', label: 'Главная' },
   { id: 'services', label: 'Услуги' },
+  { id: 'price', label: 'Цены' },
   { id: 'about', label: 'О мастере' },
-  { id: 'results', label: 'Результаты' },
   { id: 'booking', label: 'Запись' },
   { id: 'reviews', label: 'Отзывы' },
   { id: 'contacts', label: 'Контакты' },
@@ -354,6 +355,8 @@ const Index = () => {
           </p>
         </div>
       </section>
+
+      <PriceList />
 
       {/* About */}
       <section id="about" className="py-12 md:py-28" style={{ backgroundColor: '#F5EBE6' }}>
