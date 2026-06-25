@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				display: ['Oswald', 'sans-serif'],
-				sans: ['Golos Text', 'sans-serif']
+				display: ['Tenor Sans', 'serif'],
+				sans: ['Montserrat', 'sans-serif']
 			},
 			colors: {
 				border: 'hsl(var(--border))',

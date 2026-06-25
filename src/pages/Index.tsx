@@ -20,8 +20,8 @@ const HERO_IMG =
 const NAV = [
   { id: 'home', label: 'Главная' },
   { id: 'services', label: 'Услуги' },
-  { id: 'about', label: 'Обо мне' },
-  { id: 'diplomas', label: 'Дипломы' },
+  { id: 'about', label: 'О мастере' },
+  { id: 'results', label: 'Результаты' },
   { id: 'booking', label: 'Запись' },
   { id: 'reviews', label: 'Отзывы' },
   { id: 'contacts', label: 'Контакты' },
@@ -226,26 +226,30 @@ const Index = () => {
       </header>
 
       {/* Hero */}
-      <section id="home" className="relative min-h-screen flex items-center pt-14 md:pt-16 overflow-hidden noise-bg">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-transparent pointer-events-none" />
+      <section id="home" className="relative min-h-screen flex items-center pt-14 md:pt-16 overflow-hidden" style={{ backgroundColor: '#F5EBE6' }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         <div className="container grid md:grid-cols-2 gap-8 md:gap-16 items-center py-12 md:py-24">
           <div className="animate-fade-up order-2 md:order-1">
             <div className="flex items-center gap-3 mb-5 md:mb-8">
               <div className="h-px w-8 bg-primary" />
-              <span className="text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-primary">лимфоток · массаж и эстетика тела · москва</span>
+              <span className="text-xs tracking-[0.25em] uppercase text-primary" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}>Авторский массаж · Москва · м. Новокузнецкая</span>
             </div>
-            <p className="text-sm md:text-base text-foreground/90 font-medium max-w-sm mb-4 md:mb-5 leading-relaxed tracking-wide">
-              ЛИМФОТОК — это не просто массаж.<br />Это архитектура вашего силуэта.
+            <h1
+              className="mb-5 md:mb-6 leading-none"
+              style={{ fontFamily: "'Tenor Sans', serif", fontSize: 'clamp(3rem, 8vw, 6rem)', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2d2420' }}
+            >
+              ЛИМФОТОК
+            </h1>
+            <p className="text-base md:text-lg text-foreground/80 max-w-sm mb-8 md:mb-10 leading-relaxed" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}>
+              Авторский массаж и моделирование силуэта в центре Москвы
             </p>
-            <blockquote className="border-l-2 border-primary pl-4 mb-8 md:mb-10">
-              <p className="text-sm text-muted-foreground leading-relaxed italic">
-                «Я объединил глубокие знания биомеханики тела из профессионального спорта и мягкие французские техники лимфодренажа. Моя задача — убрать скрытые мышечные зажимы, которые блокируют лимфатическую систему, вывести лишнюю жидкость и вернуть вашему телу его природные, чёткие грани. Без боли, без синяков, с заботой о каждой клетке».
-              </p>
-            </blockquote>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <a href="https://dikidi.app/2093993" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="w-full sm:w-auto rounded-none px-8 md:px-10 h-12 text-xs tracking-widest uppercase">Записаться на сеанс</Button>
+                <Button size="lg" className="w-full sm:w-auto rounded-none px-8 md:px-10 h-12 text-xs tracking-widest uppercase">
+                  Записаться на сеанс-знакомство
+                  <span className="ml-2 text-primary-foreground/70 font-normal normal-case" style={{ fontSize: '10px' }}>−20%</span>
+                </Button>
               </a>
               <Button
                 size="lg"
@@ -259,10 +263,10 @@ const Index = () => {
           </div>
           <div className="animate-fade-up order-1 md:order-2" style={{ animationDelay: '0.2s' }}>
             <div className="relative group">
-              <div className="absolute -inset-8 bg-primary/10 blur-[80px] rounded-full" />
+              <div className="absolute -inset-8 bg-primary/8 blur-[80px] rounded-full" />
 
               {/* Карусель */}
-              <div className="relative overflow-hidden shadow-2xl" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%)' }}>
+              <div className="relative overflow-hidden shadow-xl">
                 {CAROUSEL_IMGS.map((img, i) => (
                   <div
                     key={img.src}
@@ -272,21 +276,20 @@ const Index = () => {
                     <img
                       src={img.src}
                       alt={img.label}
-                      className="w-full aspect-square object-cover"
+                      className="w-full aspect-[4/5] object-cover"
                     />
                   </div>
                 ))}
 
                 {/* Лейбл */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 md:px-6 py-3 md:py-4">
-                  <span className="text-xs tracking-[0.25em] uppercase text-white/80">{CAROUSEL_IMGS[slide].label}</span>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent px-4 md:px-6 py-3 md:py-4">
+                  <span className="text-xs tracking-[0.25em] uppercase text-white/80" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}>{CAROUSEL_IMGS[slide].label}</span>
                 </div>
 
-                {/* Кнопки — на мобиле всегда видны */}
-                <button onClick={prevSlide} className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/30 active:bg-black/50 text-white transition-colors md:opacity-0 md:group-hover:opacity-100">
+                <button onClick={prevSlide} className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/20 active:bg-black/40 text-white transition-colors md:opacity-0 md:group-hover:opacity-100">
                   <Icon name="ChevronLeft" size={16} />
                 </button>
-                <button onClick={nextSlide} className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/30 active:bg-black/50 text-white transition-colors md:opacity-0 md:group-hover:opacity-100">
+                <button onClick={nextSlide} className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/20 active:bg-black/40 text-white transition-colors md:opacity-0 md:group-hover:opacity-100">
                   <Icon name="ChevronRight" size={16} />
                 </button>
               </div>
@@ -354,77 +357,103 @@ const Index = () => {
       </section>
 
       {/* About */}
-      <section id="about" className="py-16 md:py-28">
-        <div className="container grid md:grid-cols-5 gap-8 md:gap-16 items-center">
-          <div className="md:col-span-2 relative max-w-xs mx-auto md:max-w-none w-full">
-            <div className="absolute -top-4 -left-4 w-20 h-20 border border-primary/15" />
-            <div className="absolute -bottom-4 -right-4 w-14 h-14 border border-primary/10" />
-            <img
-              src={HERO_IMG}
-              alt="Евгений — профессиональный массажист"
-              className="relative w-full object-cover object-top"
-              style={{ clipPath: 'polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%)' }}
-            />
+      <section id="about" className="py-16 md:py-28" style={{ backgroundColor: '#F5EBE6' }}>
+        <div className="container">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-6 bg-primary" />
+            <span className="text-xs tracking-[0.3em] uppercase text-primary" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}>о мастере и квалификации</span>
           </div>
-          <div className="md:col-span-3">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-6 bg-primary" />
-              <span className="text-xs tracking-[0.3em] uppercase text-primary">обо мне</span>
+          <h2
+            className="mb-10 md:mb-14"
+            style={{ fontFamily: "'Tenor Sans', serif", fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '0.06em', textTransform: 'uppercase', color: '#2d2420', lineHeight: 1.2 }}
+          >
+            Экспертный подход<br />к красоте вашего тела
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
+            {/* Текст */}
+            <div>
+              <div className="space-y-4 text-[15px] leading-relaxed" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300, color: '#3a2e28' }}>
+                <p>Меня зовут <strong style={{ fontWeight: 500 }}>Евгений</strong>, и я — дипломированный специалист по эстетическому моделированию тела и лимфодренажу.</p>
+                <p>Мой путь в профессию — это осознанный выбор. Мои знания анатомии, физиологии и путей циркуляции лимфы подтверждены дипломами ведущих образовательных центров страны — <strong style={{ fontWeight: 500 }}>Колледжа им. Бена Вейдера</strong> и <strong style={{ fontWeight: 500 }}>Учебного центра Андрея Мартынова</strong>.</p>
+                <p>Я убеждён, что путь к тонкой талии и избавлению от отёков не должен лежать через боль и синяки. Агрессивное воздействие только травмирует ткани. В своей работе я использую мягкие, глубокие ручные техники, которые бережно расслабляют зажатые мышцы, освобождают сосуды и запускают естественный лимфоток.</p>
+                <p>Каждая процедура подбирается индивидуально под особенности вашей кожи и сосудов, возвращая телу лёгкость, а силуэту — чёткие, изящные контуры.</p>
+              </div>
+              <div className="grid grid-cols-3 gap-4 md:gap-6 border-t border-border/30 pt-6 md:pt-8 mt-8">
+                {[
+                  { n: '8+', l: 'лет практики' },
+                  { n: '1200+', l: 'клиентов' },
+                  { n: '100%', l: 'индивидуально' },
+                ].map((stat) => (
+                  <div key={stat.l} className="relative pl-3 md:pl-4 before:absolute before:left-0 before:top-1 before:h-4/5 before:w-px before:bg-primary/40">
+                    <div className="font-display text-3xl md:text-4xl text-primary">{stat.n}</div>
+                    <div className="text-xs text-muted-foreground mt-1 tracking-wider uppercase" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}>{stat.l}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mb-6 md:mb-8">
-              Ваше тело —<br />моя работа
-            </h2>
-            <p className="text-muted-foreground mb-4 leading-relaxed text-sm md:text-base">
-              Меня зовут Евгений. Более 8 лет я работаю с телом: восстановление
-              после нагрузок, эстетика контура, возвращение лёгкости и тонуса.
-              Владею техниками классического, лимфодренажного, медового массажа
-              и обёртываний. Работаю на результат, который виден и ощутим.
-            </p>
-            <p className="text-muted-foreground mb-8 md:mb-10 leading-relaxed text-sm md:text-base">
-              Каждый сеанс — продуманная схема под ваш запрос. Без спешки,
-              с вниманием к каждому участку тела.
-            </p>
-            <div className="grid grid-cols-3 gap-4 md:gap-6 border-t border-border/30 pt-6 md:pt-8">
-              {[
-                { n: '8+', l: 'лет практики' },
-                { n: '1200+', l: 'клиентов' },
-                { n: '100%', l: 'индивидуально' },
-              ].map((stat) => (
-                <div key={stat.l} className="relative pl-3 md:pl-4 before:absolute before:left-0 before:top-1 before:h-4/5 before:w-px before:bg-primary/40">
-                  <div className="font-display text-3xl md:text-4xl text-primary">{stat.n}</div>
-                  <div className="text-xs text-muted-foreground mt-1 tracking-wider uppercase">{stat.l}</div>
-                </div>
-              ))}
-            </div>
+
+            {/* Слайдер дипломов/портрет */}
+            <DiplomaCarousel />
           </div>
         </div>
       </section>
 
 
-      {/* Diplomas */}
-      <section id="diplomas" className="py-20 md:py-32" style={{ background: 'linear-gradient(135deg, #faf8f5 0%, #f5f0eb 50%, #faf8f5 100%)' }}>
-        <div className="container max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Text */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="h-px w-8 bg-primary" />
-                <span className="text-xs tracking-[0.3em] uppercase text-primary" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}>квалификация</span>
-              </div>
-              <h2
-                className="text-3xl md:text-4xl lg:text-5xl mb-8 text-foreground"
-                style={{ fontFamily: "'Tenor Sans', serif", letterSpacing: '0.06em', lineHeight: 1.2 }}
+      {/* Results */}
+      <section id="results" className="py-16 md:py-28" style={{ backgroundColor: '#ede0db' }}>
+        <div className="container">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-6 bg-primary" />
+            <span className="text-xs tracking-[0.3em] uppercase text-primary" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}>результаты</span>
+          </div>
+          <h2
+            className="mb-10 md:mb-14"
+            style={{ fontFamily: "'Tenor Sans', serif", fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '0.06em', textTransform: 'uppercase', color: '#2d2420', lineHeight: 1.2 }}
+          >
+            Что вы почувствуете<br />после первого сеанса?
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {[
+              {
+                icon: 'Wind',
+                title: 'Лёгкость',
+                text: 'Моментальное избавление от тяжести и «гудения» в ногах.',
+              },
+              {
+                icon: 'Ruler',
+                title: 'Минус объёмы',
+                text: 'Лишняя застоявшаяся жидкость уходит, проявляя истинные контуры талии и бёдер.',
+              },
+              {
+                icon: 'Sparkles',
+                title: 'Тонус кожи',
+                text: 'Мягкое воздействие стимулирует обновление клеток, делая кожу гладкой и упругой.',
+              },
+              {
+                icon: 'Heart',
+                title: 'Абсолютный релакс',
+                text: 'Глубокое расслабление нервной системы и снятие накопленного стресса.',
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="p-6 md:p-8 flex flex-col gap-4 hover-lift"
+                style={{ backgroundColor: '#F5EBE6', border: '1px solid rgba(139,109,96,0.15)' }}
               >
-                Экспертность,<br />подтверждённая<br />знаниями
-              </h2>
-              <div className="space-y-4 text-[15px] leading-relaxed" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 400, color: '#3a2e28' }}>
-                <p>Меня зовут Евгений, и я — дипломированный мастер эстетики тела. Осознанно пришёл в профессию и владею самыми актуальными техниками лимфодренажного массажа.</p>
-                <p>Я сторонник современного подхода: массаж должен приносить пользу и глубокое расслабление, а не боль и синяки. Мои дипломы и свидетельства получены в ведущих центрах страны — это значит, что я работаю по самым свежим, безопасным и передовым методикам.</p>
-                <p>Благодаря глубокому знанию анатомии и биомеханики, я не использую шаблонные схемы, а бережно подбираю силу движений под особенности именно вашего тела, помогая ему вернуть природную лёгкость и чёткие контуры.</p>
+                <div className="w-10 h-10 flex items-center justify-center border border-primary/25">
+                  <Icon name={item.icon} className="text-primary" size={18} />
+                </div>
+                <h3
+                  style={{ fontFamily: "'Tenor Sans', serif", letterSpacing: '0.06em', textTransform: 'uppercase', fontSize: '0.95rem', color: '#2d2420' }}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}>
+                  {item.text}
+                </p>
               </div>
-            </div>
-            {/* Diploma carousel */}
-            <DiplomaCarousel />
+            ))}
           </div>
         </div>
       </section>

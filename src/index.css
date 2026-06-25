@@ -1,38 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Montserrat:wght@300;400;500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 36 30% 97%;
-    --foreground: 25 20% 20%;
+    --background: 20 30% 95%;
+    --foreground: 20 15% 22%;
 
-    --card: 36 25% 95%;
-    --card-foreground: 25 20% 20%;
+    --card: 20 25% 97%;
+    --card-foreground: 20 15% 22%;
 
-    --popover: 36 25% 95%;
-    --popover-foreground: 25 20% 20%;
+    --popover: 20 25% 97%;
+    --popover-foreground: 20 15% 22%;
 
-    --primary: 32 45% 48%;
+    --primary: 25 28% 42%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 36 20% 91%;
-    --secondary-foreground: 25 15% 30%;
+    --secondary: 20 18% 90%;
+    --secondary-foreground: 20 15% 28%;
 
-    --muted: 36 18% 93%;
-    --muted-foreground: 25 10% 50%;
+    --muted: 20 15% 92%;
+    --muted-foreground: 20 10% 48%;
 
-    --accent: 32 30% 88%;
-    --accent-foreground: 25 20% 20%;
+    --accent: 25 20% 85%;
+    --accent-foreground: 20 15% 22%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 36 15% 84%;
-    --input: 36 15% 84%;
-    --ring: 32 45% 48%;
+    --border: 20 12% 82%;
+    --input: 20 12% 82%;
+    --ring: 25 28% 42%;
 
-    --radius: 0.6rem;
+    --radius: 0.4rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -82,8 +84,10 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Golos Text", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
     -webkit-font-smoothing: antialiased;
+    background-color: #f5ebe6;
   }
 
   h1,
@@ -91,9 +95,9 @@
   h3,
   h4,
   .font-display {
-    font-family: "Oswald", sans-serif;
+    font-family: "Tenor Sans", serif;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.08em;
   }
 }
 
