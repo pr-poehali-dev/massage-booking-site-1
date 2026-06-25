@@ -3,6 +3,12 @@ import Icon from '@/components/ui/icon';
 
 const DIPLOMAS = [
   {
+    title: 'Евгений — мастер эстетики тела',
+    subtitle: 'Лимфодренаж · Моделирование силуэта · Москва',
+    src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/d21d70f6-4ee0-4ffe-99ce-27e4da494786.jpeg',
+    portrait: true,
+  },
+  {
     title: 'Сертификат — Массажист универсал',
     subtitle: 'Учебный центр Андрея Мартынова',
     src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/5d982237-1ce7-471f-922a-f5df942f802f.jpeg',
@@ -54,14 +60,15 @@ export default function DiplomaCarousel() {
 
           {/* Image */}
           <button
-            className="block w-full overflow-hidden rounded-2xl shadow-lg border border-border/20 group"
+            className="block w-full overflow-hidden shadow-lg border border-border/20 group"
+            style={{ borderRadius: '1rem' }}
             onClick={() => setLightbox(d.src)}
             aria-label="Открыть"
           >
             <img
               src={d.src}
               alt={d.title}
-              className="w-full aspect-[4/3] object-cover group-hover:scale-[1.02] transition-transform duration-500"
+              className={`w-full object-cover group-hover:scale-[1.02] transition-transform duration-500 ${'portrait' in d && d.portrait ? 'aspect-[3/4] object-top' : 'aspect-[4/3]'}`}
             />
           </button>
 
