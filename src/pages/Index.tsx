@@ -35,6 +35,7 @@ const SERVICES = [
     desc: 'Глубокое ручное воздействие, которое возвращает коже упругость, снимает накопленное напряжение и пробуждает природный тонус тела — от шеи до стоп.',
     duration: '90 мин',
     price: '4 500 ₽',
+    sale: '4 000 ₽',
   },
   {
     icon: 'Droplets',
@@ -42,6 +43,7 @@ const SERVICES = [
     desc: 'Мягкая авторская техника, запускающая движение лимфы. Уходят отёки и застоявшаяся жидкость, проявляются контуры, возвращается лёгкость и подтянутость силуэта.',
     duration: '90 мин',
     price: '4 500 ₽',
+    sale: '4 000 ₽',
   },
   {
     icon: 'Layers',
@@ -49,6 +51,7 @@ const SERVICES = [
     desc: 'Сеанс, созданный под ваш запрос: эстетическая база + лимфодренаж + антицеллюлитный блок для проблемных зон. Моделирование контура и повышение упругости кожи за один визит.',
     duration: '90 мин',
     price: '4 500 ₽',
+    sale: '4 000 ₽',
   },
   {
     icon: 'Flame',
@@ -56,6 +59,7 @@ const SERVICES = [
     desc: 'Интенсивный детокс для кожи: натуральный мёд вытягивает токсины, прогревает ткани и устраняет застойные зоны. Кожа дышит и сияет уже после первого сеанса.',
     duration: '45 мин',
     price: '3 800 ₽',
+    sale: '3 300 ₽',
   },
   {
     icon: 'Sparkles',
@@ -63,6 +67,7 @@ const SERVICES = [
     desc: 'Завершающий штрих или самостоятельная процедура. Водорослевое — детокс и минерализация; шоколадное — питание и лифтинг; грязевое — глубокое прогревание. Состав подбирается под вашу кожу.',
     duration: '45 мин',
     price: '2 800 ₽',
+    sale: '2 300 ₽',
   },
   {
     icon: 'PackageCheck',
@@ -70,6 +75,7 @@ const SERVICES = [
     desc: 'Комплексная программа для тех, кто хочет максимум за один визит: бережная проработка всего тела и завершающее обёртывание на выбор.',
     duration: '2 часа',
     price: '5 000 ₽',
+    sale: '4 500 ₽',
   },
 ];
 
@@ -330,13 +336,16 @@ const Index = () => {
                     <Icon name="Clock" size={12} /> {s.duration}
                   </span>
                   <div className="text-right">
-                    <div className="text-primary font-medium text-sm">{s.price}</div>
+                    <div className="text-xs text-muted-foreground line-through leading-tight">{s.price}</div>
+                    <div className="text-primary font-medium text-sm">{s.sale}</div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-
+          <p className="mt-5 text-xs text-muted-foreground text-center tracking-wider" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}>
+            * Цена со скидкой действует на первый сеанс для новых клиентов
+          </p>
         </div>
       </section>
 
