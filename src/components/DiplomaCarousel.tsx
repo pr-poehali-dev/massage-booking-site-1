@@ -49,15 +49,6 @@ export default function DiplomaCarousel() {
       <div className="flex flex-col items-center select-none">
         {/* Card */}
         <div className="relative w-full max-w-sm mx-auto">
-          {/* Arrow left */}
-          <button
-            onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 z-10 w-9 h-9 flex items-center justify-center rounded-full border border-border/40 bg-white/80 backdrop-blur-sm hover:bg-white transition-colors shadow-sm"
-            aria-label="Назад"
-          >
-            <Icon name="ChevronLeft" size={16} className="text-foreground/60" />
-          </button>
-
           {/* Image */}
           <button
             className="block w-full overflow-hidden shadow-lg border border-border/20 group"
@@ -72,10 +63,17 @@ export default function DiplomaCarousel() {
             />
           </button>
 
-          {/* Arrow right */}
+          {/* Стрелки поверх фото */}
+          <button
+            onClick={prev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-sm hover:bg-white transition-colors shadow-sm border border-border/20"
+            aria-label="Назад"
+          >
+            <Icon name="ChevronLeft" size={16} className="text-foreground/60" />
+          </button>
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 z-10 w-9 h-9 flex items-center justify-center rounded-full border border-border/40 bg-white/80 backdrop-blur-sm hover:bg-white transition-colors shadow-sm"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-sm hover:bg-white transition-colors shadow-sm border border-border/20"
             aria-label="Вперёд"
           >
             <Icon name="ChevronRight" size={16} className="text-foreground/60" />
@@ -94,7 +92,8 @@ export default function DiplomaCarousel() {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`rounded-full transition-all duration-300 ${i === current ? 'w-5 h-1.5 bg-primary' : 'w-1.5 h-1.5 bg-border hover:bg-primary/40'}`}
+              className={`rounded-full transition-all duration-300 ${i === current ? 'w-5 h-2 bg-primary' : 'w-2 h-2 bg-border hover:bg-primary/40'}`}
+              style={{ padding: '6px', boxSizing: 'content-box' }}
               aria-label={`Слайд ${i + 1}`}
             />
           ))}
