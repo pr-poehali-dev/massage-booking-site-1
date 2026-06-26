@@ -562,6 +562,10 @@ const Index = () => {
               ))}
             </div>
 
+            <div className="bg-card border border-border/40 rounded-2xl px-5 py-4 mb-3 text-sm text-muted-foreground leading-relaxed text-center">
+              <span className="font-medium text-foreground">Уважаемые гости!</span> Во время сеансов я не могу отвечать на звонки и сообщения в мессенджерах. Самый надёжный и быстрый способ посмотреть свободные окошки и записаться онлайн в любое время суток — нажать на кнопку ниже.
+            </div>
+
             <div className="flex flex-col gap-3">
               <a
                 href="https://dikidi.app/2093993"
