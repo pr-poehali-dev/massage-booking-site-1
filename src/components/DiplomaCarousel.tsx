@@ -3,6 +3,12 @@ import Icon from '@/components/ui/icon';
 
 const DIPLOMAS = [
   {
+    title: 'Евгений Малахов',
+    subtitle: 'Мастер эстетики тела · Лимфодренаж · Москва',
+    src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/f1a5fa7e-f624-4ec5-a122-1b0f89fe8e60.jpeg',
+    portrait: true,
+  },
+  {
     title: 'Свидетельство — Инструктор фитнеса, бодибилдинга, оздоровительной физической культуры',
     subtitle: 'Колледж фитнеса и бодибилдинга им. Бена Вейдера · 2019',
     src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/86577a3e-d76d-4250-8b80-d3210ad5a638.jpeg',
