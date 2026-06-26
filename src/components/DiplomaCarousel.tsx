@@ -3,35 +3,29 @@ import Icon from '@/components/ui/icon';
 
 const DIPLOMAS = [
   {
-    title: 'Евгений — мастер эстетики тела',
-    subtitle: 'Лимфодренаж · Моделирование силуэта · Москва',
-    src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/d21d70f6-4ee0-4ffe-99ce-27e4da494786.jpeg',
-    portrait: true,
+    title: 'Свидетельство — Инструктор фитнеса, бодибилдинга, оздоровительной физической культуры',
+    subtitle: 'Колледж фитнеса и бодибилдинга им. Бена Вейдера · 2019',
+    src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/86577a3e-d76d-4250-8b80-d3210ad5a638.jpeg',
+  },
+  {
+    title: 'Диплом — Инструктор фитнеса, бодибилдинга, оздоровительной физической культуры',
+    subtitle: 'Колледж фитнеса и бодибилдинга им. Бена Вейдера · 2019',
+    src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/1c3dbcfd-df30-48fe-a14f-2926781c9130.jpeg',
   },
   {
     title: 'Сертификат — Массажист универсал',
-    subtitle: 'Учебный центр Андрея Мартынова',
-    src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/5d982237-1ce7-471f-922a-f5df942f802f.jpeg',
+    subtitle: 'Учебный центр Андрея Мартынова · 288 часов · 2026',
+    src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/57507b7a-851a-43f4-995d-5bf4c35e11a4.jpeg',
   },
   {
-    title: 'Диплом о профессиональной переподготовке',
-    subtitle: 'Учебный центр Андрея Мартынова',
-    src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/56720788-52b1-4744-9152-3d02a2ef2ea6.jpeg',
+    title: 'Диплом о профессиональной переподготовке — Косметик-эстетист по уходу за телом',
+    subtitle: 'Учебный центр Андрея Мартынова · 288 часов · 2026',
+    src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/62b0c67a-b015-4a62-97c5-a7f59a32a167.jpeg',
   },
   {
-    title: 'Диплом — Инструктор фитнеса и бодибилдинга',
-    subtitle: 'Колледж фитнеса и бодибилдинга им. Бена Вейдера',
-    src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/6b1e05f9-619b-4f68-90e1-941359f4146b.jpeg',
-  },
-  {
-    title: 'Свидетельство — Массажист универсал',
-    subtitle: 'Колледж фитнеса и бодибилдинга им. Бена Вейдера',
-    src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/01ed165c-9ffa-4086-affb-259fb6996587.jpeg',
-  },
-  {
-    title: 'Приложение к свидетельству',
-    subtitle: 'Учебный центр Андрея Мартынова',
-    src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/08b4afb0-5276-4485-a4b7-f8511062e097.jpeg',
+    title: 'Приложение к свидетельству — Массажист универсал',
+    subtitle: 'Учебный центр Андрея Мартынова · 288 часов · 2026',
+    src: 'https://cdn.poehali.dev/projects/27dbd435-5956-42d1-ae6e-3adbaec2e040/bucket/60efcf7b-109b-4687-82be-153c08f404da.jpeg',
   },
 ];
 
