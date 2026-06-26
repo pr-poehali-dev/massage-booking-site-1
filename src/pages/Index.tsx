@@ -377,7 +377,7 @@ const Index = () => {
                 {[
                   { n: '8+', l: 'лет практики' },
                   { n: '1200+', l: 'клиентов' },
-                  { n: '100%', l: 'индивид.' },
+                  { n: '100%', l: 'индивидуально' },
                 ].map((stat, idx) => (
                   <div key={stat.l} className={`flex-1 px-3 md:px-4 ${idx > 0 ? 'border-l border-border/30' : ''}`}>
                     <div className="font-display text-2xl md:text-4xl text-primary">{stat.n}</div>
